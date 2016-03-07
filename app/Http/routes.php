@@ -14,9 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// Route::get('auth/login', 'Auth\AuthController@getLogin');
+// Route::post('auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,13 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 |
 */
 
-Route::group(['namespace' => 'Admin','middleware' => ['web']], function () {
-    
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web']], function ($router) {
+    $router->get('/', 'IndexController@index');
+});
+
+/*登录*/
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
