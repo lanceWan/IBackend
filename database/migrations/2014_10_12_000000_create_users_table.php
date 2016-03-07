@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+
+            $table->tinyInteger('status')->default(1)->comment("1-正常，2-禁用");
             $table->rememberToken();
             $table->timestamps();
         });
