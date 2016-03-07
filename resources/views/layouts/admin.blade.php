@@ -1,108 +1,173 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+      <meta charset="utf-8" />
+      <title>Metronic | Dashboard</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta content="" name="description" />
+      <meta content="" name="author" />
+      @section('common_css')
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all')}}" rel="stylesheet" type="text/css" /> -->
+        <link href="{{asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{{asset('backend/css/components-md.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{asset('backend/css/plugins-md.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="{{asset('backend/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{{asset('backend/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+      @show
 
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Metronic | Admin Dashboard Template</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-    @section('common_css')
-      <!-- BEGIN GLOBAL MANDATORY STYLES -->
-      <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
-      <link href="{{asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-      <link href="{{asset('backend/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-      <link href="{{asset('backend/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
-      <link href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- END GLOBAL MANDATORY STYLES -->
-      <!-- BEGIN THEME GLOBAL STYLES -->
-      <link href="{{asset('backend/css/components-md.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-      <link href="{{asset('backend/css/plugins-md.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- END THEME GLOBAL STYLES -->
-      <!-- BEGIN THEME LAYOUT STYLES -->
-      <link href="{{asset('backend/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
-      <link href="{{asset('backend/css/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-      <link href="{{asset('backend/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- END THEME LAYOUT STYLES -->
-    @show
+      @yield('custom_css')
 
-    @yield('custom_css')
-    <link rel="shortcut icon" href="favicon.ico"/>
-  </head>
-  
-  <body>
-    @include('layouts.admin.header')
-    
-    @include('layouts.admin.slidemenu')
+      <link rel="shortcut icon" href="favicon.ico" />
+    </head>
+    <!-- END HEAD -->
 
-    <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper">
-      <div class="page-content">
-        @yield('modal')
-          
-          <!-- BEGIN PAGE HEADER-->
-          <h3 class="page-title">
-              Blank Page <small>blank page</small>
-          </h3>
-          <div class="page-bar">
-              <ul class="page-breadcrumb">
-                <li>
-                  <i class="fa fa-home"></i>
-                  <a href="index.html">Home</a>
-                  <i class="fa fa-angle-right"></i>
-                </li>
-                <li>
-                  <a href="#">Page Layouts</a>
-                  <i class="fa fa-angle-right"></i>
-                </li>
-                <li>
-                  <a href="#">Blank Page</a>
-                </li>
-              </ul>
-          </div>
-          <!-- END PAGE HEADER-->
-          <!-- BEGIN PAGE CONTENT-->
-          <div class="row">
-              <div class="col-md-12">
-                  @yield('content')
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="index.html">
+                        <img src="../assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
+                    <div class="menu-toggler sidebar-toggler"> </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
+                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="page_user_profile_1.html">
+                                        <i class="icon-user"></i> My Profile </a>
+                                </li>
+                                <li>
+                                    <a href="app_calendar.html">
+                                        <i class="icon-calendar"></i> My Calendar </a>
+                                </li>
+                                <li>
+                                    <a href="app_inbox.html">
+                                        <i class="icon-envelope-open"></i> My Inbox
+                                        <span class="badge badge-danger"> 3 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="app_todo.html">
+                                        <i class="icon-rocket"></i> My Tasks
+                                        <span class="badge badge-success"> 7 </span>
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="page_user_lock_1.html">
+                                        <i class="icon-lock"></i> Lock Screen </a>
+                                </li>
+                                <li>
+                                    <a href="page_user_login_1.html">
+                                        <i class="icon-key"></i> Log Out </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+          @include('layouts.admin.sidebar')
+
+          <!-- BEGIN CONTENT -->
+          <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+              <!-- BEGIN PAGE HEADER-->
+              <!-- BEGIN PAGE BAR -->
+              <div class="page-bar">
+                <ul class="page-breadcrumb">
+                  <li>
+                    <a href="index.html">Home</a>
+                    <i class="fa fa-circle"></i>
+                  </li>
+                  <li>
+                    <span>Dashboard</span>
+                  </li>
+                </ul>
               </div>
+              <!-- END PAGE BAR -->
+              <!-- BEGIN PAGE TITLE-->
+              <h3 class="page-title"> Dashboard<small>dashboard & statistics</small></h3>
+              <!-- END PAGE TITLE-->
+              <!-- END PAGE HEADER-->
+              
+              @yield('content')
+              
+            </div>
+            <!-- END CONTENT BODY -->
           </div>
-          <!-- END PAGE CONTENT-->
-      </div>
-    </div>
-    <!-- END CONTENT -->
+          <!-- END CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+        
+        @include('layouts.admin.footer')
 
-    @include('layouts.admin.footer')
+        @section('common_js')
+          <!--[if lt IE 9]>
+          <script src="{{asset('backend/plugins/respond.min.js')}}"></script>
+          <script src="{{asset('backend/plugins/excanvas.min.js')}}"></script> 
+          <![endif]-->
+          <!-- BEGIN CORE PLUGINS -->
+          <script src="{{asset('backend/plugins/jquery.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
+          <script src="{{asset('backend/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+          <!-- END CORE PLUGINS -->
+          <!-- BEGIN THEME GLOBAL SCRIPTS -->
+          <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
+          <!-- END THEME GLOBAL SCRIPTS -->
+          <!-- BEGIN THEME LAYOUT SCRIPTS -->
+          <script src="{{asset('backend/js/layout.min.js')}}" type="text/javascript"></script>
+          <!-- END THEME LAYOUT SCRIPTS <-->
+        @show
 
-    @section('common_js')
-      <script src="{{asset('backend/plugins/jquery.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
-      <!-- END CORE PLUGINS -->
-      <!-- BEGIN THEME GLOBAL SCRIPTS -->
-      <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
-      <!-- END THEME GLOBAL SCRIPTS -->
-      <!-- BEGIN THEME LAYOUT SCRIPTS -->
-      <script src="{{asset('backend/js/layout.min.js')}}" type="text/javascript"></script>
-      <script src="{{asset('backend/js/demo.min.js')}}" type="text/javascript"></script>
-      
-      <script type="text/javascript">
-      jQuery(document).ready(function() {    
-         App.init(); // init metronic core componets
-         Layout.init(); // init layout
-      });
-      </script>
-    @show
+        @yield('custom_js')
+    </body>
 
-    @yield('custom_js')
-  </body>  
 </html>

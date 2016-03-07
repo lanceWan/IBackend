@@ -20,6 +20,13 @@ class IndexController extends Controller{
 	 * @return		
 	 */
     public function index(){
+
+    	// $vendorDir = dirname(dirname("d:/project/php/ibackend/vendor/composer/autoload_files.php"));
+    	// echo $vendorDir;
+    	// $baseDir = dirname($vendorDir);
+    	// dd($baseDir);
+    	hsky();
+    	dd('aa');
     	return view('layouts.admin');
     }
 }
