@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new authentication controller instance.
@@ -67,6 +68,19 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]);
+    }
+    /**
+     * 验证码需要必填
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required', 
+            'password' => 'required',
+            'captcha' => 'required|captcha'
         ]);
     }
 }

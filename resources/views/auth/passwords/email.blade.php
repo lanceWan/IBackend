@@ -2,46 +2,35 @@
 
 <!-- Main Content -->
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<!-- BEGIN FORGOT PASSWORD FORM -->
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+<form class="" action="{{ url('/password/email') }}" method="post">
+    {!! csrf_field() !!}
+    <h3>Forget Password ?</h3>
+    <p> Enter your e-mail address below to reset your password. </p>
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <button class="close" data-close="alert"></button>
+        @foreach($errors->all() as $error)
+            <span class="help-block"><strong>{{ $error }}</strong></span>
+        @endforeach
+    </div>
+    @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-                        {!! csrf_field() !!}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" value="{{ old('email') }}" name="email" /> 
         </div>
     </div>
-</div>
+    <div class="form-actions">
+        <a href="{{url('/login')}}" id="back-btn" class="btn red btn-outline">Back </a>
+        <button type="submit" class="btn green pull-right"> <i class="fa fa-btn fa-envelope"></i> Submit </button>
+    </div>
+</form>
+<!-- END FORGOT PASSWORD FORM -->
 @endsection

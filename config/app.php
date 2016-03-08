@@ -165,7 +165,7 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Mews\Captcha\CaptchaServiceProvider::class,
     ],
 
     /*
@@ -213,6 +213,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Active' => HieuLe\Active\Facades\Active::class,
         'Flash' => Laracasts\Flash\Flash::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
         /*custom facade*/
         'BackUserRepository' => App\Facades\BackUserFacade::class,

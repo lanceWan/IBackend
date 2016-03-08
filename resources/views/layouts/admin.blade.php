@@ -23,7 +23,7 @@
         <!-- END GLOBAL MANDATORY STYLES -->
         @yield('custom_css')
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{asset('backend/css/components-md.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{asset('backend/css/components-md.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/css/plugins-md.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
