@@ -41,7 +41,7 @@ var TableDatatablesAjax = function() {
         	"name": "updated_at",
         	"orderable" : false,
         },
-    	]
+    	],
     });
 	};
 

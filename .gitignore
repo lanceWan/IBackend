@@ -6,4 +6,3 @@ Homestead.json
 .env
 .tag*
 storage/debugbar
-composer.lock

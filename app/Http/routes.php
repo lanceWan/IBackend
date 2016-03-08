@@ -30,16 +30,16 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web']], function ($router) {
-    $router->get('/', 'IndexController@index');
-    $router->get('/ajaxindex', 'IndexController@ajaxIndex');
-
-    require(__DIR__ . '/Routes/UserRoute.php');
-});
-
 /*登录*/
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web', 'auth']], function ($router) {
+    $router->get('/', 'IndexController@index');
+    $router->get('/ajaxindex', 'IndexController@ajaxIndex');
+
+    require(__DIR__ . '/Routes/UserRoute.php');
 });

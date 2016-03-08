@@ -16,7 +16,6 @@
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all')}}" rel="stylesheet" type="text/css" /> -->
         <link href="{{asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('backend/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
@@ -114,27 +113,12 @@
           <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
             <div class="page-content">
-              <!-- BEGIN PAGE HEADER-->
-              <!-- BEGIN PAGE BAR -->
-              <div class="page-bar">
-                <ul class="page-breadcrumb">
-                  <li>
-                    <a href="index.html">Home</a>
-                    <i class="fa fa-circle"></i>
-                  </li>
-                  <li>
-                    <span>Dashboard</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- END PAGE BAR -->
-              <!-- BEGIN PAGE TITLE-->
-              <h3 class="page-title"> Dashboard<small>dashboard & statistics</small></h3>
-              <!-- END PAGE TITLE-->
-              <!-- END PAGE HEADER-->
-              <div class="page-content-body">
-                @yield('content')
-              </div>
+              @section('body')
+                @include('layouts.admin.breadcrumb')
+                <div class="page-content-body">
+                  @yield('content')
+                </div>
+              @show
               
             </div>
             <!-- END CONTENT BODY -->

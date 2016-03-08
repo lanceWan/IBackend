@@ -52,6 +52,7 @@
 				'draw' => $draw,
 				'recordsTotal' => $count,
 				'recordsFiltered' => $count,
+				'button' => 'asfaslf',
 				'data' => $users,
 			];
 		}

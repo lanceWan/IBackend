@@ -21,7 +21,7 @@
        
             <li class="nav-item start open active">
                 <a href="/admin/ajaxindex" class="nav-link ajaxify">
-                    <i class="icon-home"></i>
+                    <i class="fa fa-tachometer"></i>
                     <span class="title">Dashboard</span>
                     <span class="selected"></span>
                 </a>
@@ -31,13 +31,14 @@
             </li>
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-diamond"></i>
+                    <i class="fa fa-diamond"></i>
                     <span class="title">UI Features</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="ui_colors.html" class="nav-link ajaxify">
+                            <i class="fa fa-crop"></i>
                             <span class="title">Color Library</span>
                         </a>
                     </li>
