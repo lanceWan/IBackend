@@ -164,6 +164,7 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -212,6 +213,13 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Active' => HieuLe\Active\Facades\Active::class,
         'Flash' => Laracasts\Flash\Flash::class,
+
+        /*custom facade*/
+        'BackUserRepository' => App\Facades\BackUserFacade::class,
+        'BackRoleRepository' => App\Facades\BackRoleFacade::class,
+        'BackMenuRepository' => App\Facades\BackMenuFacade::class,
+        'BackPermissionRepository' => App\Facades\BackPermissionFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

@@ -21,6 +21,7 @@
         <link href="{{asset('backend/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        @yield('custom_css')
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{asset('backend/css/components-md.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{{asset('backend/css/plugins-md.min.css')}}" rel="stylesheet" type="text/css" />
@@ -32,7 +33,6 @@
         <!-- END THEME LAYOUT STYLES -->
       @show
 
-      @yield('custom_css')
 
       <link rel="shortcut icon" href="favicon.ico" />
     </head>
@@ -132,8 +132,9 @@
               <h3 class="page-title"> Dashboard<small>dashboard & statistics</small></h3>
               <!-- END PAGE TITLE-->
               <!-- END PAGE HEADER-->
-              
-              @yield('content')
+              <div class="page-content-body">
+                @yield('content')
+              </div>
               
             </div>
             <!-- END CONTENT BODY -->
@@ -159,6 +160,7 @@
           <script src="{{asset('backend/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
           <script src="{{asset('backend/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
           <!-- END CORE PLUGINS -->
+          @yield('custom_js')
           <!-- BEGIN THEME GLOBAL SCRIPTS -->
           <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
           <!-- END THEME GLOBAL SCRIPTS -->
@@ -167,7 +169,6 @@
           <!-- END THEME LAYOUT SCRIPTS <-->
         @show
 
-        @yield('custom_js')
     </body>
 
 </html>

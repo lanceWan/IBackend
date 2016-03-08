@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use BackUserRepository;
+
+/**
+ * 后台 用户 控制器
+ * 
+ * @param        
+ * 
+ * @author        xezw211@gmail.com
+ * 
+ * @date        2016-03-08 09:06:14
+ * 
+ * @return        
+ */
 class UserController extends Controller
 {
     /**
@@ -14,9 +27,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        return view('admin.user.index');
+    }
+
+    /**
+     * 用户 ajax列表
+     * 
+     * @param        
+     * 
+     * @author        xezw211@gmail.com
+     * 
+     * @date        2016-03-08 09:22:59
+     * 
+     * @return        
+     */
+    public function ajaxIndex(){
+        // dd(request()->all());
+        $data = BackUserRepository::ajaxIndex();
+
+        return response()->json($data);
     }
 
     /**

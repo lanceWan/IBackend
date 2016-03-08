@@ -13,20 +13,28 @@ class IndexController extends Controller{
 	 * 
 	 * @param		
 	 * 
-	 * @author		wen.zhou@bioon.com
+	 * @author		xezw211@gmail.com
 	 * 
-	 * @date		2016-03-07 14:21:54
+	 * @date		2016-03-08 09:05:58
 	 * 
 	 * @return		
 	 */
     public function index(){
+    	return view('admin.index.index');
+    }
 
-    	// $vendorDir = dirname(dirname("d:/project/php/ibackend/vendor/composer/autoload_files.php"));
-    	// echo $vendorDir;
-    	// $baseDir = dirname($vendorDir);
-    	// dd($baseDir);
-    	hsky();
-    	dd('aa');
-    	return view('layouts.admin');
+    /**
+     * 局部 首页
+     * 
+     * @param		
+     * 
+     * @author		xezw211@gmail.com
+     * 
+     * @date		2016-03-08 16:48:16
+     * 
+     * @return		
+     */
+    public function ajaxIndex(){
+    	return view('admin.index.ajaxindex');
     }
 }

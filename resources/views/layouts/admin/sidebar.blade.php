@@ -20,21 +20,11 @@
             </li>
        
             <li class="nav-item start open active">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="/admin/ajaxindex" class="nav-link ajaxify">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
                     <span class="selected"></span>
-                    <span class="arrow"></span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start active">
-                        <a href="index.html" class="nav-link ajaxify">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">Dashboard 1</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class="heading">
                 <h3 class="uppercase">Features</h3>

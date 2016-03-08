@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return 'aaaa';
 });
 // Route::get('auth/login', 'Auth\AuthController@getLogin');
 // Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -31,6 +32,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web']], function ($router) {
     $router->get('/', 'IndexController@index');
+    $router->get('/ajaxindex', 'IndexController@ajaxIndex');
+
+    require(__DIR__ . '/Routes/UserRoute.php');
 });
 
 /*登录*/
