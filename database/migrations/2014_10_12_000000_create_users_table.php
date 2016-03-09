@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->tinyInteger('status')->default(1)->comment("1-正常，2-禁用");
+            $table->tinyInteger('confirm_email')->default(2)->comment('1-验证，2-没验证');
             $table->rememberToken();
             $table->timestamps();
         });

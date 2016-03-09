@@ -59,7 +59,7 @@
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
-                              <td>
+                              <td> 
                                 <div class="form-group form-md-line-input">
                                   <div class="input-group has-success">
                                       <span class="input-group-addon">
