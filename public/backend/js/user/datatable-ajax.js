@@ -4,7 +4,18 @@ var TableDatatablesAjax = function() {
 		ajax_datatable = dt.DataTable({
 			"processing": true,
       "serverSide": true,
-      "ajax": '/admin/user/ajaxindex',
+      "ajax": {
+        'url' : '/admin/user/ajaxindex',
+        "data": function ( d ) {
+          d.name = $('.filter input[name="name"]').val();
+          d.email = $('.filter input[name="email"]').val();
+          d.status = $('.filter select[name="status"] option:selected').val();
+          d.created_at_from = $('.filter input[name="created_at_from"]').val();
+          d.created_at_to = $('.filter input[name="created_at_to"]').val();
+          d.updated_at_from = $('.filter input[name="updated_at_from"]').val();
+          d.updated_at_to = $('.filter input[name="updated_at_to"]').val();
+        }
+      },
       "order" : [],
       "orderCellsTop": true,
       "dom" : "<'row'<'col-sm-3'l><'col-sm-6'<'customtoolbar'>><'col-sm-3'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",

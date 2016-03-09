@@ -49,42 +49,43 @@
                           <tr role="row" class="filter">
                               <td> </td>
                               <td>
-                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                                <input type="text" class="form-control form-filter input-sm" name="name" placeholder="{{ trans('model.user.name') }}"> </td>
                               <td>
-                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                                <input type="text" class="form-control form-filter input-sm" name="email" placeholder="{{ trans('model.user.email') }}"> </td>
                               </td>
                               <td>
-                                <select name="order_status" class="form-control form-filter input-sm">
-                                  <option value="">Select...</option>
-                                  <option value="pending">Pending</option>
-                                  <option value="closed">Closed</option>
-                                  <option value="hold">On Hold</option>
-                                  <option value="fraud">Fraud</option>
+                                <select name="status" class="form-control form-filter input-sm">
+                                  <option value="">状态...</option>
+                                  @if(trans('label.user.status'))
+                                    @foreach(trans('label.user.status') as $status_key => $status_value)
+                                      <option value="{{$status_key}}">{{$status_value}}</option>
+                                    @endforeach
+                                  @endif
                                 </select>
                               <td>
                                 <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="created_at_from">
                                   <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </span>
                                 </div>
 
                                 <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="To" name="created_at_to">
                                   <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </span>
                                 </div>
                               <td>
                                   <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="updated_at_from">
                                     <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </span>
                                   </div>
 
                                   <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="To" name="updated_at_to">
                                     <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </span>
