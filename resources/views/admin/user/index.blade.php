@@ -34,47 +34,75 @@
               </div>
             </div>
 	            <div class="portlet-body">
-	                <div class="table-container">
-                    <div class="table-actions-wrapper">
-                      <span> </span>
-                      <select class="table-group-action-input form-control input-inline input-small input-sm">
-                        <option value="">Select...</option>
-                        <option value="Cancel">Cancel</option>
-                        <option value="Cancel">Hold</option>
-                        <option value="Cancel">On Hold</option>
-                        <option value="Close">Close</option>
-                      </select>
-                      <button class="btn btn-sm green table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
-                    </div>
-	                    <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
-	                        <thead>
-                            <tr role="row" class="heading">
-                              <th width="2%"></th>
-                              <th width="15%"><input type="text"></th>
-                              <th width="200"><input type="text"></th>
-                              <th width="10%">
-                                <select name="status">
-                                  <option value="1">正常</option>
-                                  <option value="2">禁止</option>
+                <div class="table-container">
+                  <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
+                      <thead>
+                          <tr role="row" class="heading">
+                            <th><input type="checkbox" class="group-checkable"> </th>
+                            <th> {{ trans('model.user.name') }} </th>
+                            <th> {{ trans('model.user.email') }} </th>
+                            <th> {{ trans('model.user.status') }} </th>
+                            <th width="12%"> {{ trans('model.user.created_at') }} </th>
+                            <th width="12%"> {{ trans('model.user.updated_at') }} </th>
+                            <th> {{ trans('label.action') }} </th>
+                          </tr>
+                          <tr role="row" class="filter">
+                              <td> </td>
+                              <td>
+                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                              <td>
+                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                              </td>
+                              <td>
+                                <select name="order_status" class="form-control form-filter input-sm">
+                                  <option value="">Select...</option>
+                                  <option value="pending">Pending</option>
+                                  <option value="closed">Closed</option>
+                                  <option value="hold">On Hold</option>
+                                  <option value="fraud">Fraud</option>
                                 </select>
-                              </th>
-                              <th width="10%"></th>
-                              <th width="10%"></th>
-                              <th width="10%"></th>
-                            </tr>
-                            <tr role="row" class="heading">
-                              <th width="2%"><input type="checkbox" class="group-checkable"> </th>
-                              <th width="15%"> {{ trans('model.user.name') }} </th>
-                              <th width="200"> {{ trans('model.user.email') }} </th>
-                              <th width="10%"> {{ trans('model.user.status') }} </th>
-                              <th width="10%"> {{ trans('model.user.created_at') }} </th>
-                              <th width="10%"> {{ trans('model.user.updated_at') }} </th>
-                              <th width="10%"> {{ trans('label.action') }} </th>
-                            </tr>
-	                        </thead>
-	                        <tbody> </tbody>
-	                    </table>
-	                </div>
+                              <td>
+                                <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                  </span>
+                                </div>
+
+                                <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                  </span>
+                                </div>
+                              <td>
+                                  <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                    <span class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </span>
+                                  </div>
+
+                                  <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                    <span class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </span>
+                                  </div>
+                              </td>
+                              <td>
+                                  <div class="margin-bottom-5">
+                                      <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
+                                          <i class="fa fa-search"></i> Search</button>
+                                  </div>
+                                  <button class="btn btn-sm red btn-outline filter-cancel">
+                                      <i class="fa fa-times"></i> Reset</button>
+                              </td>
+                          </tr>
+                      </thead>
+                      <tbody> </tbody>
+                  </table>
+                </div>
 	            </div>
 	        </div>
 	        <!-- End: life time stats -->
@@ -86,11 +114,17 @@
 
 	<script src="{{asset('backend/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
-
+  <script src="{{asset('backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('backend/js/user/datatable-ajax.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {
-			TableDatatablesAjax.init()
+			TableDatatablesAjax.init();
+
+      $('.input-group.date').datepicker({
+        autoclose: true
+      });
+
+
 		});
 	</script>
 @endsection

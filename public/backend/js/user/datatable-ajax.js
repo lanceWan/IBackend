@@ -1,10 +1,12 @@
 var TableDatatablesAjax = function() {
 	var datatableAjax = function(){
-		$('#datatable_ajax').DataTable({
+    dt = $('#datatable_ajax');
+		ajax_datatable = dt.DataTable({
 			"processing": true,
       "serverSide": true,
       "ajax": '/admin/user/ajaxindex',
       "order" : [],
+      "orderCellsTop": true,
       "dom" : "<'row'<'col-sm-3'l><'col-sm-6'<'customtoolbar'>><'col-sm-3'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "columns": [
         {
@@ -45,8 +47,14 @@ var TableDatatablesAjax = function() {
     	],
     });
 
-    console.log($("div.toolbar").html());
-    $("div.customtoolbar").html($("div.toolbar").html());
+    dt.on('click', '.filter-submit', function(){
+      // console.log('submit');
+      ajax_datatable.ajax.reload();
+    });
+
+    dt.on('click', '.filter-cancel', function(){
+      console.log('cancel');
+    });
 	};
 
 	return {
