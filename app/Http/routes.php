@@ -15,10 +15,6 @@ Route::get('/', function () {
     // return view('welcome');
     return 'aaaa';
 });
-// Route::get('auth/login', 'Auth\AuthController@getLogin');
-// Route::post('auth/login', 'Auth\AuthController@postLogin');
-// Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,4 +38,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web'
     $router->get('/ajaxindex', 'IndexController@ajaxIndex');
 
     require(__DIR__ . '/Routes/UserRoute.php');
+    //权限
+    require(__DIR__ . '/Routes/PermissionRoute.php');
 });

@@ -16,7 +16,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.permission.index');
     }
 
     /**
@@ -83,5 +83,10 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ajaxIndex()
+    {
+        // return view('admin.permission.index');
     }
 }
