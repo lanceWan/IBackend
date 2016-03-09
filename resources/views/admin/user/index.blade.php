@@ -3,22 +3,18 @@
 @section('custom_css')
   <link href="{{asset('backend/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-	<!-- END PAGE BAR -->
-	<!-- BEGIN PAGE TITLE-->
-	<h3 class="page-title">用户列表</h3>
-	<!-- END PAGE TITLE-->
-	<!-- END PAGE HEADER-->
-	<div class="row">
+	<div class="row margin-top-40">
 	    <div class="col-md-12">
 	        <!-- Begin: life time stats -->
 	        <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
               <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">用户列表</span>
+                <span class="caption-subject font-dark sbold uppercase">{{trans('label.user.index')}}</span>
               </div>
               <div class="actions">
                 <div class="btn-group">
@@ -53,13 +49,27 @@
 	                    <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
 	                        <thead>
                             <tr role="row" class="heading">
+                              <th width="2%"></th>
+                              <th width="15%"><input type="text"></th>
+                              <th width="200"><input type="text"></th>
+                              <th width="10%">
+                                <select name="status">
+                                  <option value="1">正常</option>
+                                  <option value="2">禁止</option>
+                                </select>
+                              </th>
+                              <th width="10%"></th>
+                              <th width="10%"></th>
+                              <th width="10%"></th>
+                            </tr>
+                            <tr role="row" class="heading">
                               <th width="2%"><input type="checkbox" class="group-checkable"> </th>
-                              <th width="15%"> name </th>
-                              <th width="200"> email </th>
-                              <th width="10%"> status </th>
-                              <th width="10%"> 创建时间 </th>
-                              <th width="10%"> 修改时间 </th>
-                              <th width="10%"> 操作 </th>
+                              <th width="15%"> {{ trans('model.user.name') }} </th>
+                              <th width="200"> {{ trans('model.user.email') }} </th>
+                              <th width="10%"> {{ trans('model.user.status') }} </th>
+                              <th width="10%"> {{ trans('model.user.created_at') }} </th>
+                              <th width="10%"> {{ trans('model.user.updated_at') }} </th>
+                              <th width="10%"> {{ trans('label.action') }} </th>
                             </tr>
 	                        </thead>
 	                        <tbody> </tbody>

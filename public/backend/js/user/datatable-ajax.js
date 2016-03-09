@@ -5,6 +5,7 @@ var TableDatatablesAjax = function() {
       "serverSide": true,
       "ajax": '/admin/user/ajaxindex',
       "order" : [],
+      "dom" : "<'row'<'col-sm-3'l><'col-sm-6'<'customtoolbar'>><'col-sm-3'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "columns": [
         {
         	"data": "id",
@@ -43,6 +44,9 @@ var TableDatatablesAjax = function() {
         },
     	],
     });
+
+    console.log($("div.toolbar").html());
+    $("div.customtoolbar").html($("div.toolbar").html());
 	};
 
 	return {
