@@ -4,6 +4,7 @@
   <link href="{{asset('backend/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('backend/plugins/bootstrap-select/css/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -39,8 +40,8 @@
                       <thead>
                           <tr role="row" class="heading">
                             <th><input type="checkbox" class="group-checkable"> </th>
-                            <th> {{ trans('model.user.name') }} </th>
-                            <th> {{ trans('model.user.email') }} </th>
+                            <th width="20%"> {{ trans('model.user.name') }} </th>
+                            <th width="20%"> {{ trans('model.user.email') }} </th>
                             <th> {{ trans('model.user.status') }} </th>
                             <th width="12%"> {{ trans('model.user.created_at') }} </th>
                             <th width="12%"> {{ trans('model.user.updated_at') }} </th>
@@ -49,19 +50,37 @@
                           <tr role="row" class="filter">
                               <td> </td>
                               <td>
-                                <input type="text" class="form-control form-filter input-sm" name="name" placeholder="{{ trans('model.user.name') }}"> </td>
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-user"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="name" placeholder="{{ trans('model.user.name') }}">
+                                      <div class="form-control-focus"> </div>
+                                  </div>
+                                </div>
                               <td>
-                                <input type="text" class="form-control form-filter input-sm" name="email" placeholder="{{ trans('model.user.email') }}"> </td>
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-envelope"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="email" placeholder="{{ trans('model.user.email') }}">
+                                      <div class="form-control-focus"> </div>
+                                  </div>
+                                </div>
                               </td>
                               <td>
-                                <select name="status" class="form-control form-filter input-sm">
-                                  <option value="">状态...</option>
-                                  @if(trans('label.user.status'))
-                                    @foreach(trans('label.user.status') as $status_key => $status_value)
-                                      <option value="{{$status_key}}">{{$status_value}}</option>
-                                    @endforeach
-                                  @endif
-                                </select>
+                                <div class="form-group form-md-line-input">
+                                  <select class="bs-select form-control form-filter" data-show-subtext="true" name="status">
+                                    <option value="" data-icon="fa-glass icon-success">状态....</option>
+                                      @if(trans('label.user.status'))
+                                        @foreach(trans('label.user.status') as $status_key => $status_value)
+                                          <option value="{{$status_key}}">{{$status_value}}</option>
+                                        @endforeach
+                                      @endif
+                                  </select>
+                                </div>
                               <td>
                                 <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
                                   <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="created_at_from">
@@ -116,6 +135,7 @@
 	<script src="{{asset('backend/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
   <script src="{{asset('backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+  <script src="{{asset('backend/plugins/bootstrap-select/js/bootstrap-select.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('backend/js/user/datatable-ajax.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {
@@ -125,7 +145,10 @@
         autoclose: true
       });
 
-
+      $(".bs-select").selectpicker({
+        iconBase: "fa",
+        tickIcon: "fa-check"
+      })
 		});
 	</script>
 @endsection

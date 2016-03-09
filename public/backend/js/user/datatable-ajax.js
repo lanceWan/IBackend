@@ -60,6 +60,7 @@ var TableDatatablesAjax = function() {
     });
 
     dt.on('click', '.filter-submit', function(){
+      console.log($(".filter input[name='status']:checked").val());
       ajax_datatable.ajax.reload(); 
     });
 
@@ -67,6 +68,9 @@ var TableDatatablesAjax = function() {
       $('textarea.form-filter, select.form-filter, input.form-filter', dt).each(function() {
           $(this).val("");
       });
+
+      $('select.form-filter').selectpicker('refresh');
+
       $('input.form-filter[type="checkbox"]', dt).each(function() {
           $(this).attr("checked", false);
       });
