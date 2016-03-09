@@ -4,6 +4,7 @@ var TableDatatablesAjax = function() {
 		ajax_datatable = dt.DataTable({
 			"processing": true,
       "serverSide": true,
+      "searching" : false,
       "ajax": {
         'url' : '/admin/user/ajaxindex',
         "data": function ( d ) {
@@ -59,12 +60,16 @@ var TableDatatablesAjax = function() {
     });
 
     dt.on('click', '.filter-submit', function(){
-      // console.log('submit');
       ajax_datatable.ajax.reload(); 
     });
 
     dt.on('click', '.filter-cancel', function(){
-      console.log('cancel');
+      $('textarea.form-filter, select.form-filter, input.form-filter', dt).each(function() {
+          $(this).val("");
+      });
+      $('input.form-filter[type="checkbox"]', dt).each(function() {
+          $(this).attr("checked", false);
+      });
     });
 	};
 
