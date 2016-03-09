@@ -49,7 +49,7 @@ var TableDatatablesAjax = function() {
 
     dt.on('click', '.filter-submit', function(){
       // console.log('submit');
-      ajax_datatable.ajax.reload();
+      ajax_datatable.ajax.reload(); 
     });
 
     dt.on('click', '.filter-cancel', function(){
