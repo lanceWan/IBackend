@@ -70,6 +70,7 @@ var TableDatatablesAjax = function() {
       $('input.form-filter[type="checkbox"]', dt).each(function() {
           $(this).attr("checked", false);
       });
+      ajax_datatable.ajax.reload();
     });
 	};
 
