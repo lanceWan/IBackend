@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use BackPermissionRepository;
 
 class PermissionController extends Controller
 {
@@ -87,6 +88,7 @@ class PermissionController extends Controller
 
     public function ajaxIndex()
     {
-        // return view('admin.permission.index');
+        $permission = BackPermissionRepository::ajaxIndex();
+        return response()->json($permission);
     }
 }

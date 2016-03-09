@@ -1,4 +1,4 @@
-@extends('admin.permission.layout')
+@extends('admin.user.layout')
 
 @section('custom_css')
   <link href="{{asset('backend/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
@@ -7,14 +7,14 @@
 @endsection
 
 @section('content')
-	<div class="row margin-top-40">
-	    <div class="col-md-12">
-	        <!-- Begin: life time stats -->
-	        <div class="portlet light portlet-fit portlet-datatable bordered">
+  <div class="row margin-top-40">
+      <div class="col-md-12">
+          <!-- Begin: life time stats -->
+          <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
               <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">{{trans('label.user.index')}}</span>
+                <span class="caption-subject font-dark sbold uppercase">{{trans('label.permission.index')}}</span>
               </div>
               <div class="actions">
                 <div class="btn-group">
@@ -33,58 +33,76 @@
                 </div>
               </div>
             </div>
-	            <div class="portlet-body">
+              <div class="portlet-body">
                 <div class="table-container">
                   <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
                       <thead>
                           <tr role="row" class="heading">
                             <th><input type="checkbox" class="group-checkable"> </th>
-                            <th> {{ trans('model.user.name') }} </th>
-                            <th> {{ trans('model.user.email') }} </th>
-                            <th> {{ trans('model.user.status') }} </th>
-                            <th width="12%"> {{ trans('model.user.created_at') }} </th>
-                            <th width="12%"> {{ trans('model.user.updated_at') }} </th>
+                            <th width="20%"> {{ trans('model.permission.name') }} </th>
+                            <th width="20%"> {{ trans('model.permission.slug') }} </th>
+                            <th> {{ trans('model.permission.description') }} </th>
+                            <th width="12%"> {{ trans('model.permission.created_at') }} </th>
+                            <th width="12%"> {{ trans('model.permission.updated_at') }} </th>
                             <th> {{ trans('label.action') }} </th>
                           </tr>
                           <tr role="row" class="filter">
                               <td> </td>
                               <td>
-                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
-                              <td>
-                                <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-user"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="name" placeholder="{{ trans('model.permission.name') }}">
+                                      <div class="form-control-focus"> </div>
+                                  </div>
+                                </div>
+                              <td> 
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-envelope"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="slug" placeholder="{{ trans('model.permission.slug') }}">
+                                      <div class="form-control-focus"> </div>
+                                  </div>
+                                </div>
                               </td>
                               <td>
-                                <select name="order_status" class="form-control form-filter input-sm">
-                                  <option value="">Select...</option>
-                                  <option value="pending">Pending</option>
-                                  <option value="closed">Closed</option>
-                                  <option value="hold">On Hold</option>
-                                  <option value="fraud">Fraud</option>
-                                </select>
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-book"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="description" placeholder="{{ trans('model.permission.description') }}">
+                                      <div class="form-control-focus"> </div>
+                                  </div>
+                                </div>
                               <td>
                                 <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="created_at_from">
                                   <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </span>
                                 </div>
 
                                 <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                  <input type="text" class="form-control form-filter input-sm" readonly placeholder="To" name="created_at_to">
                                   <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </span>
                                 </div>
                               <td>
                                   <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="From">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="updated_at_from">
                                     <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </span>
                                   </div>
 
                                   <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="To">
+                                    <input type="text" class="form-control form-filter input-sm" readonly placeholder="To" name="updated_at_to">
                                     <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </span>
@@ -103,28 +121,26 @@
                       <tbody> </tbody>
                   </table>
                 </div>
-	            </div>
-	        </div>
-	        <!-- End: life time stats -->
-	    </div>
-	</div>
+              </div>
+          </div>
+          <!-- End: life time stats -->
+      </div>
+  </div>
 @endsection
 
 @section('custom_js')
 
-	<script src="{{asset('backend/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+  <script src="{{asset('backend/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+  <script src="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
   <script src="{{asset('backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('backend/js/user/datatable-ajax.js')}}"></script>
-	<script>
-		jQuery(document).ready(function() {
-			TableDatatablesAjax.init();
+  <script src="{{asset('backend/js/permission/datatable-ajax.js')}}"></script>
+  <script>
+    jQuery(document).ready(function() {
+      TableDatatablesAjax.init();
 
       $('.input-group.date').datepicker({
         autoclose: true
       });
-
-
-		});
-	</script>
+    });
+  </script>
 @endsection
