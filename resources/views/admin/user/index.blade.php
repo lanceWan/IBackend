@@ -59,6 +59,7 @@
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
+                              </td>
                               <td> 
                                 <div class="form-group form-md-line-input">
                                   <div class="input-group has-success">
@@ -81,6 +82,7 @@
                                       @endif
                                   </select>
                                 </div>
+                              </td>
                               <td>
                                 <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
                                   <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="created_at_from">

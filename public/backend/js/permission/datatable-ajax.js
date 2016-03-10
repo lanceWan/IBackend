@@ -11,6 +11,7 @@ var TableDatatablesAjax = function() {
           d.name = $('.filter input[name="name"]').val();
           d.slug = $('.filter input[name="slug"]').val();
           d.description = $('.filter input[name="description"]').val();
+          d.model = $('.filter input[name="model"]').val();
           d.created_at_from = $('.filter input[name="created_at_from"]').val();
           d.created_at_to = $('.filter input[name="created_at_to"]').val();
           d.updated_at_from = $('.filter input[name="updated_at_from"]').val();
@@ -37,9 +38,14 @@ var TableDatatablesAjax = function() {
         	"orderable" : false,
         },
         { 
-        	"data": "description",
-        	"name": "description",
-        	"orderable" : true,
+          "data": "description",
+          "name": "description",
+          "orderable" : true,
+        },
+        { 
+        	"data": "model",
+        	"name": "model",
+        	"orderable" : false,
         },
         { 
         	"data": "created_at",

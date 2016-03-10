@@ -19,12 +19,10 @@
 		 * @return		
 		 */
 		public function ajaxIndex(){
-			$data = request()->all();
 
 			$draw = request('draw', 1);/*获取请求次数*/
 			$start = request('start', config('main.list.start')); /*获取开始*/
 			$length = request('length', config('main.list.length')); ///*获取条数*/
-			$search = request('search.value', ''); /*搜索*/
 			$search_pattern = request('search.regex', true); /*是否启用模糊搜索*/
 			
 			$name = request('name' ,'');
@@ -79,6 +77,7 @@
 				$user = $user->where('created_at', '<=', getTime($updated_at_to, false));	
 			}
 
+			$count = $user->count();
 			$user = $user->offset($start)->limit($length);
 
 			if($orders){
@@ -88,7 +87,6 @@
 			}
 
 			$users = $user->get();
-			$count = $user->count();
 
 			return [
 				'draw' => $draw,

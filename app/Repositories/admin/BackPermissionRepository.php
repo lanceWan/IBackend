@@ -14,12 +14,12 @@
 			$draw = request('draw', 1);/*获取请求次数*/
 			$start = request('start', config('main.list.start')); /*获取开始*/
 			$length = request('length', config('main.list.length')); ///*获取条数*/
-			$search = request('search.value', ''); /*搜索*/
 			$search_pattern = request('search.regex', true); /*是否启用模糊搜索*/
 			
 			$name = request('name' ,'');
 			$slug = request('slug' ,'');
 			$description = request('description' ,'');
+			$model = request('model' ,'');
 			$created_at_from = request('created_at_from' ,'');
 			$created_at_to = request('created_at_to' ,'');
 			$updated_at_from = request('updated_at_from' ,'');
@@ -54,6 +54,15 @@
 				}
 			}
 
+			/*模型搜索*/
+			if($model){
+				if($search_pattern){
+					$permission = $permission->where('model', 'like', $model);
+				}else{
+					$permission = $permission->where('model', $model);
+				}
+			}
+
 			/*权限创建时间搜索*/
 			if($created_at_from){
 				$permission = $permission->where('created_at', '>=', getTime($created_at_from));	
@@ -71,6 +80,8 @@
 				$permission = $permission->where('created_at', '<=', getTime($updated_at_to, false));	
 			}
 
+			$count = $permission::count();
+
 			$permission = $permission->offset($start)->limit($length);
 
 			if($orders){
@@ -80,7 +91,6 @@
 			}
 
 			$permissions = $permission->get();
-			$count = $permission->count();
 
 			return [
 				'draw' => $draw,

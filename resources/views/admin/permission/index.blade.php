@@ -42,6 +42,7 @@
                             <th width="20%"> {{ trans('model.permission.name') }} </th>
                             <th width="20%"> {{ trans('model.permission.slug') }} </th>
                             <th> {{ trans('model.permission.description') }} </th>
+                            <th> {{ trans('model.permission.model') }} </th>
                             <th width="12%"> {{ trans('model.permission.created_at') }} </th>
                             <th width="12%"> {{ trans('model.permission.updated_at') }} </th>
                             <th> {{ trans('label.action') }} </th>
@@ -79,6 +80,17 @@
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
+                              </td>
+                              <td>
+                                <div class="form-group form-md-line-input">
+                                  <div class="input-group has-success">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-cogs"></i>
+                                      </span>
+                                      <input type="text" class="form-control" name="model" placeholder="{{ trans('model.permission.model') }}">
+                                  </div>
+                                </div>
+                              </td>
                               <td>
                                 <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
                                   <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="created_at_from">
@@ -93,6 +105,7 @@
                                     <i class="fa fa-calendar"></i>
                                   </span>
                                 </div>
+                              </td>
                               <td>
                                   <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
                                     <input type="text" class="form-control form-filter input-sm" readonly placeholder="From" name="updated_at_from">
