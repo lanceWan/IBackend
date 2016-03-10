@@ -1,112 +1,115 @@
-<!-- BEGIN SIDEBAR -->
-<div class="page-sidebar-wrapper">
-    <!-- BEGIN SIDEBAR -->
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-    <div class="page-sidebar navbar-collapse collapse">
-        <!-- BEGIN SIDEBAR MENU -->
-        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
-            <li class="sidebar-toggler-wrapper hide">
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                <div class="sidebar-toggler"> </div>
-                <!-- END SIDEBAR TOGGLER BUTTON -->
-            </li>
-       
-            <li class="nav-item start open active">
-                <a href="/admin/ajaxindex" class="nav-link ajaxify">
-                    <i class="fa fa-tachometer"></i>
-                    <span class="title">Dashboard</span>
-                    <span class="selected"></span>
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+        <li class="sidebar-search-wrapper">
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+            <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+            <form class="sidebar-search sidebar-search-bordered" action="#" method="POST">
+                <a href="javascript:;" class="remove">
+                    <i class="icon-close"></i>
                 </a>
-            </li>
-            <li class="heading">
-                <h3 class="uppercase">Features</h3>
-            </li>
-            <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-diamond"></i>
-                    <span class="title">UI Features</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ajaxify">
-                            <i class="fa fa-crop"></i>
-                            <span class="title">Color Library</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <a href="javascript:;" class="btn submit">
+                            <i class="icon-magnifier"></i>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_general.html" class="nav-link ajaxify">
-                            <span class="title">General Components</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link ajaxify">
-                            <span class="title">Buttons</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_confirmations.html" class="nav-link ajaxify">
-                            <span class="title">Popover Confirmations</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_icons.html" class="nav-link ajaxify">
-                            <span class="title">Font Icons</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_socicons.html" class="nav-link ajaxify">
-                            <span class="title">Social Icons</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_typography.html" class="nav-link ajaxify">
-                            <span class="title">Typography</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_tabs_accordions_navs.html" class="nav-link ajaxify">
-                            <span class="title">Tabs, Accordions & Navs</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_timeline.html" class="nav-link ajaxify">
-                            <span class="title">Timeline</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_tree.html" class="nav-link ajaxify">
-                            <span class="title">Tree View</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
-                            <span class="title">Page Progress Bar</span>
-                            <span class="arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="nav-item ">
-                                <a href="ui_page_progress_style_1.html" class="nav-link ajaxify"> Flash </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="ui_page_progress_style_2.html" class="nav-link ajaxify"> Big Counter </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <!-- END SIDEBAR MENU -->
-        <!-- END SIDEBAR MENU -->
-    </div>
-    <!-- END SIDEBAR -->
+                    </span>
+                </div>
+            </form>
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        <li class="start nav-item">
+            <a href="#/dashboard.html">
+                <i class="icon-home"></i>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-settings"></i>
+                <span class="title">AngularJS Features</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#/ui_bootstrap.html">
+                        <i class="icon-puzzle"></i> UI Bootstrap</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/file_upload.html">
+                        <i class="icon-paper-clip"></i> File Upload</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/ui_select.html">
+                        <i class="icon-check"></i> UI Select</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-wrench"></i>
+                <span class="title">jQuery Plugins</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#/form-tools">
+                        <i class="icon-puzzle"></i> Form Tools </a>
+                </li>
+                <li>
+                    <a href="#/pickers">
+                        <i class="icon-calendar"></i> Date & Time Pickers </a>
+                </li>
+                <li>
+                    <a href="#/dropdowns">
+                        <i class="icon-refresh"></i> Custom Dropdowns </a>
+                </li>
+                <li>
+                    <a href="#/tree">
+                        <i class="icon-share"></i> Tree View </a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-briefcase"></i> Datatables
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#/datatables/managed.html">
+                                <i class="icon-tag"></i> Managed Datatables </a>
+                        </li>
+                        <li>
+                            <a href="#/datatables/ajax.html">
+                                <i class="icon-refresh"></i> Ajax Datatables </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#/profile/dashboard" id="sidebar_menu_link_profile">
+                <i class="icon-user"></i>
+                <span class="title">User Profile</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/todo">
+                <i class="icon-check"></i>
+                <span class="title">Task & Todo</span>
+            </a>
+        </li>
+    </ul>
+    <!-- END SIDEBAR MENU -->
 </div>
-<!-- END SIDEBAR -->

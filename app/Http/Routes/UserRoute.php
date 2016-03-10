@@ -12,6 +12,7 @@
 	 */
 	$router->group(['prefix' => 'user'], function($router){
 		$router->get('ajaxindex', 'UserController@ajaxIndex');	
+		$router->get('ngindex', 'UserController@ngIndex');
 	});
 	
 	$router->resource('user', 'UserController');

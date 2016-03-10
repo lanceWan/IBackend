@@ -31,6 +31,10 @@ class UserController extends Controller
         return view('admin.user.index');
     }
 
+    public function ngIndex(){
+        return view('admin.user.ng_index');   
+    }
+
     /**
      * 用户 ajax列表
      * 
