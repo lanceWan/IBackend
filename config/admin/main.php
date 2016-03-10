@@ -8,5 +8,9 @@
 
 		'menu' => [
 			'系统', '功能'
+		],
+		// 控制显示permission按钮
+		'permission' => [
+			'show' => true
 		]
 	];

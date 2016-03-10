@@ -89,7 +89,7 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
 /* Setup App Main Controller */
 MetronicApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
     $scope.$on('$viewContentLoaded', function() {
-        //App.initComponents(); // init core components
+        // App.initComponents(); // init core components
         //Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive 
     });
 }]);
@@ -115,13 +115,13 @@ MetronicApp.controller('SidebarController', ['$scope', function($scope) {
 }]);
 
 /* Setup Layout Part - Quick Sidebar */
-MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
-    $scope.$on('$includeContentLoaded', function() {
-       setTimeout(function(){
-            QuickSidebar.init(); // init quick sidebar        
-        }, 2000)
-    });
-}]);
+// MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
+//     $scope.$on('$includeContentLoaded', function() {
+//        setTimeout(function(){
+//             QuickSidebar.init(); // init quick sidebar        
+//         }, 2000)
+//     });
+// }]);
 
 /* Setup Layout Part - Theme Panel */
 MetronicApp.controller('ThemePanelController', ['$scope', function($scope) {    

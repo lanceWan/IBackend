@@ -24,12 +24,13 @@ class RoleTableSeeder extends Seeder
             'slug' => 'user',
             'description' => '普通用户',
         ]);
-
-        /**
-         * 管理员初始化权限
-         */
         
-        $adminRole->detachAllPermissions();
+        /*管理员初始化所有权限*/
+        $all_permissions = Permission::all();
+        
+        foreach($all_permissions as $all_permission){
+            $adminRole->attachPermission($all_permission);
+        }
 
         /**
          * 普通用户赋予一般权限
