@@ -16,6 +16,7 @@
 			'slug' => '权限',
 			'description' => '描述',
 			'model' => '模型',
+			'status' => '状态',
 			'created_at' => '创建时间',
 			'updated_at' => '修改时间',
 		]

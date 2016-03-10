@@ -4,6 +4,7 @@
   <link href="{{asset('backend/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('backend/plugins/bootstrap-select/css/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -26,10 +27,11 @@
                       <thead>
                           <tr role="row" class="heading">
                             <th><input type="checkbox" class="group-checkable"> </th>
-                            <th width="20%"> {{ trans('model.permission.name') }} </th>
-                            <th width="20%"> {{ trans('model.permission.slug') }} </th>
+                            <th width="15%"> {{ trans('model.permission.name') }} </th>
+                            <th width="15%"> {{ trans('model.permission.slug') }} </th>
                             <th> {{ trans('model.permission.description') }} </th>
                             <th> {{ trans('model.permission.model') }} </th>
+                            <th> {{ trans('model.permission.status') }} </th>
                             <th width="12%"> {{ trans('model.permission.created_at') }} </th>
                             <th width="12%"> {{ trans('model.permission.updated_at') }} </th>
                             <th> {{ trans('label.action') }} </th>
@@ -76,6 +78,18 @@
                                       </span>
                                       <input type="text" class="form-control" name="model" placeholder="{{ trans('model.permission.model') }}">
                                   </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-group form-md-line-input">
+                                  <select class="bs-select form-control form-filter" data-show-subtext="true" name="status">
+                                    <option value="" data-icon="fa-glass icon-success">状态....</option>
+                                      @if(trans('label.permission.status'))
+                                        @foreach(trans('label.permission.status') as $status_key => $status_value)
+                                          <option value="{{$status_key}}" data-icon="{{$status_value[0]}}">{{$status_value[1]}}</option>
+                                        @endforeach
+                                      @endif
+                                  </select>
                                 </div>
                               </td>
                               <td>
@@ -133,6 +147,7 @@
   <script src="{{asset('backend/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
   <script src="{{asset('backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+  <script src="{{asset('backend/plugins/bootstrap-select/js/bootstrap-select.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('backend/js/permission/datatable-ajax.js')}}"></script>
   <script>
     jQuery(document).ready(function() {
@@ -140,6 +155,10 @@
 
       $('.input-group.date').datepicker({
         autoclose: true
+      });
+      $(".bs-select").selectpicker({
+        iconBase: "fa",
+        tickIcon: "fa-check"
       });
     });
   </script>

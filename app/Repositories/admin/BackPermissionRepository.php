@@ -20,6 +20,7 @@
 			$slug = request('slug' ,'');
 			$description = request('description' ,'');
 			$model = request('model' ,'');
+			$status = request('status' ,'');
 			$created_at_from = request('created_at_from' ,'');
 			$created_at_to = request('created_at_to' ,'');
 			$updated_at_from = request('updated_at_from' ,'');
@@ -62,6 +63,11 @@
 					$permission = $permission->where('model', $model);
 				}
 			}
+			// dd($status);
+			/*状态搜索*/
+			if ($status) {
+				$permission = $permission->where('status', $status);
+			}
 
 			/*权限创建时间搜索*/
 			if($created_at_from){
@@ -80,9 +86,8 @@
 				$permission = $permission->where('created_at', '<=', getTime($updated_at_to, false));	
 			}
 
-			$count = $permission::count();
+			$count = $permission->count();
 
-			$permission = $permission->offset($start)->limit($length);
 
 			if($orders){
 				$orderName = request('columns.' . request('order.0.column') . '.name');
@@ -90,6 +95,7 @@
 				$permission = $permission->orderBy($orderName, $orderDir);
 			}
 
+			$permission = $permission->offset($start)->limit($length);
 			$permissions = $permission->get();
 
 			if ($permissions) {

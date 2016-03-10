@@ -12,8 +12,16 @@
 		],
 		'permission' => [
 			'index' => '权限列表',
-			'edit' => '权限修改',
-			'create' => '添加权限',
+			'edit' => '修改',
+			'create' => '添加',
 			'trash' => '回收站',
+			'delete' => '彻底删除',
+			'undo' => '恢复',
+			'audit' => '通过',
+			'status' => [
+				'2' => ['fa fa-paw','待审核'],
+				'1' => ['fa fa-navicon','正常'],
+				'99' => ['fa fa-trash','回收站'],
+			]
 		]
 	];

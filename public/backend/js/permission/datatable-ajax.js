@@ -12,6 +12,7 @@ var TableDatatablesAjax = function() {
           d.slug = $('.filter input[name="slug"]').val();
           d.description = $('.filter input[name="description"]').val();
           d.model = $('.filter input[name="model"]').val();
+          d.status = $('.filter select[name="status"] option:selected').val();
           d.created_at_from = $('.filter input[name="created_at_from"]').val();
           d.created_at_to = $('.filter input[name="created_at_to"]').val();
           d.updated_at_from = $('.filter input[name="updated_at_from"]').val();
@@ -48,6 +49,20 @@ var TableDatatablesAjax = function() {
         	"orderable" : false,
         },
         { 
+          "data": "status",
+          "name": "status",
+          "orderable" : false,
+          render:function(data){
+            if (data == 1) {
+              return '<span class="label label-success"> 正常 </span>';
+            }else if(data == 2){
+              return '<span class="label label-warning"> 待审核 </span>';
+            }else{
+              return '<span class="label label-danger"> 禁用 </span>';
+            }
+          }
+        },
+        { 
         	"data": "created_at",
         	"name": "created_at",
         	"orderable" : true,
@@ -58,8 +73,8 @@ var TableDatatablesAjax = function() {
         	"orderable" : true,
         },
         { 
-        	"data": "updated_at",
-        	"name": "updated_at",
+        	"data": "actionButton",
+        	"name": "actionButton",
         	"orderable" : false,
         },
     	],
