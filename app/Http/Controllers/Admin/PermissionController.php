@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use BackPermissionRepository;
+use App\Models\ActionAttributeTrait;
 
 class PermissionController extends Controller
 {
+    use ActionAttributeTrait;
+
+    protected $action = 'permission';
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('admin.permission.index');
+        $createButton = $this->getStoreActionButton();
+        return view('admin.permission.index')->with(compact('createButton'));
     }
 
     /**

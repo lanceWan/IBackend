@@ -17,20 +17,7 @@
                 <span class="caption-subject font-dark sbold uppercase">{{trans('label.permission.index')}}</span>
               </div>
               <div class="actions">
-                <div class="btn-group">
-                  <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
-                    <i class="fa fa-share"></i>
-                    <span class="hidden-xs"> Tools </span>
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu pull-right">
-                    <li><a href="javascript:;"> Export to Excel </a></li>
-                    <li><a href="javascript:;"> Export to CSV </a></li>
-                    <li><a href="javascript:;"> Export to XML </a></li>
-                    <li class="divider"> </li>
-                    <li><a href="javascript:;"> Print Invoices </a></li>
-                  </ul>
-                </div>
+                  {!! $createButton !!}
               </div>
             </div>
               <div class="portlet-body">

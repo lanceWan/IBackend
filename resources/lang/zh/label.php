@@ -13,5 +13,7 @@
 		'permission' => [
 			'index' => '权限列表',
 			'edit' => '权限修改',
+			'create' => '添加权限',
+			'trash' => '回收站',
 		]
 	];

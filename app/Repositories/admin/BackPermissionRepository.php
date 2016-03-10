@@ -12,8 +12,8 @@
 		{
 
 			$draw = request('draw', 1);/*获取请求次数*/
-			$start = request('start', config('main.list.start')); /*获取开始*/
-			$length = request('length', config('main.list.length')); ///*获取条数*/
+			$start = request('start', config('admin.main.list.start')); /*获取开始*/
+			$length = request('length', config('admin.main.list.length')); ///*获取条数*/
 			$search_pattern = request('search.regex', true); /*是否启用模糊搜索*/
 			
 			$name = request('name' ,'');
@@ -91,6 +91,13 @@
 			}
 
 			$permissions = $permission->get();
+
+			if ($permissions) {
+				foreach ($permissions as &$v) {
+					$v['actionButton'] = $v->getActionButtonAttribute();
+				}
+			}
+
 
 			return [
 				'draw' => $draw,
