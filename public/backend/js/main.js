@@ -139,6 +139,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
+
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
@@ -150,7 +151,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         })
 
         // AngularJS plugins
-        .state('admin_user', {
+        .state('user', {
+            // abstract: true,
             url: "/admin/user",
             templateUrl: "/admin/user/ngindex",
             data: {pageTitle: 'AngularJS File Upload'},
@@ -158,6 +160,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                   return $ocLazyLoad.load({
+                    cache: false,
                       name: 'MetronicApp',
                       insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                       files: [
@@ -179,7 +182,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         })
 
         // UI Select
-        .state('admin_permission', {
+        .state('permission', {
             url: "/admin/permission",
             templateUrl: "/admin/permission/ngindex",
             data: {pageTitle: 'AngularJS Ui Select'},
@@ -187,6 +190,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([{
+                        cache: false,
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
                         name: 'MetronicApp',
                         files: [
@@ -480,6 +484,18 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 }]
             }
         });
+
+    // MetronicApp.config(function($provide) {
+    //     $provide.decorator('$state', function($delegate) {
+    //         var originalTransitionTo = $delegate.transitionTo;
+    //         $delegate.transitionTo = function(to, toParams, options) {
+    //             return originalTransitionTo(to, toParams, angular.extend({
+    //                 reload: true
+    //             }, options));
+    //         };
+    //         return $delegate;
+    //     }
+    // )};
 
         
 
