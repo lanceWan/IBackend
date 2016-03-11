@@ -22,6 +22,9 @@ var TableDatatablesAjax = function() {
       "order" : [],
       "orderCellsTop": true,
       "dom" : "<'row'<'col-sm-3'l><'col-sm-6'<'customtoolbar'>><'col-sm-3'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
+      "columnDefs": [
+          { "type": "html", "targets": 0 }
+        ],
       "columns": [
         {
         	"data": "id",
@@ -51,6 +54,7 @@ var TableDatatablesAjax = function() {
         { 
           "data": "status",
           "name": "status",
+          "type":"html",
           "orderable" : false,
           render:function(data){
             if (data == 1) {
@@ -75,9 +79,16 @@ var TableDatatablesAjax = function() {
         { 
         	"data": "actionButton",
         	"name": "actionButton",
+          "type": "html",
         	"orderable" : false,
         },
     	],
+      "drawCallback": function( settings ) {
+          ajax_datatable.$('.tooltips').tooltip( {
+            placement : 'top',
+            html : true
+      });  
+      }
     });
 
     dt.on('click', '.filter-submit', function(){
