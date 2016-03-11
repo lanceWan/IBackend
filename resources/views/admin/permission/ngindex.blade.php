@@ -67,13 +67,14 @@
                                           <i class="fa fa-cogs"></i>
                                       </span>
                                       <input type="text" class="form-control" name="model" placeholder="{{ trans('model.permission.model') }}">
+                                      <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
                               </td>
                               <td>
                                 <div class="form-group form-md-line-input">
                                   <select class="bs-select form-control form-filter" data-show-subtext="true" name="status">
-                                    <option value="" data-icon="fa-glass icon-success">状态....</option>
+                                    <option value="" data-icon="fa-glass icon-success">请选择...</option>
                                       @if(trans('label.permission.status'))
                                         @foreach(trans('label.permission.status') as $status_key => $status_value)
                                           <option value="{{$status_key}}" data-icon="{{$status_value[0]}}">{{$status_value[1]}}</option>
