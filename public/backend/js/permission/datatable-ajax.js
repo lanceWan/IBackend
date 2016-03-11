@@ -19,6 +19,7 @@ var TableDatatablesAjax = function() {
           d.updated_at_to = $('.filter input[name="updated_at_to"]').val();
         }
       },
+      "pagingType": "bootstrap_number",
       "order" : [],
       "orderCellsTop": true,
       "dom" : "<'row'<'col-sm-3'l><'col-sm-6'<'customtoolbar'>><'col-sm-3'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
@@ -84,10 +85,13 @@ var TableDatatablesAjax = function() {
         },
     	],
       "drawCallback": function( settings ) {
-          ajax_datatable.$('.tooltips').tooltip( {
-            placement : 'top',
-            html : true
-      });  
+        ajax_datatable.$('.tooltips').tooltip( {
+          placement : 'top',
+          html : true
+        });  
+      },
+      "language": {
+        url: '/admin/i18n'
       }
     });
 
@@ -105,6 +109,7 @@ var TableDatatablesAjax = function() {
       });
       ajax_datatable.ajax.reload();
     });
+    
 	};
 
 	return {

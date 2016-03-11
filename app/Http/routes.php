@@ -40,6 +40,7 @@ Route::get('sidebar', function(){
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web', 'auth']], function ($router) {
     $router->get('/', 'IndexController@index');
     $router->get('/ajaxindex', 'IndexController@ajaxIndex');
+    $router->get('/i18n', 'IndexController@dataTableI18n');
 
     require(__DIR__ . '/Routes/UserRoute.php');
     //权限
