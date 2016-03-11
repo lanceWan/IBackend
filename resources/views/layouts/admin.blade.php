@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
-Version: 4.5.1
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="MetronicApp"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="MetronicApp"> <![endif]-->
 <!--[if !IE]><!-->
@@ -127,7 +116,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="{{asset('backend/plugins/angularjs/plugins/ocLazyLoad.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js')}}" type="text/javascript"></script>
         <!-- END CORE ANGULARJS PLUGINS -->
-        <script id="ng_load_plugins_js" />
         <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
         <script src="{{asset('backend/js/main.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/directives.js')}}" type="text/javascript"></script>

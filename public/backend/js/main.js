@@ -209,7 +209,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                             'backend/js/permission/datatable-ajax.js',
 
                             'backend/js/controllers/PermissionController.js'
-                        ],
+                        ]
                     }]);
                 }]
             }
