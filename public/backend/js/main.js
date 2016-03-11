@@ -142,12 +142,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            // '../assets/global/plugins/morris/morris.css',                            
-                            // '../assets/global/plugins/morris/morris.min.js',
-                            // '../assets/global/plugins/morris/raphael-min.js',                            
-                            // '../assets/global/plugins/jquery.sparkline.min.js',
-
-                            // '../assets/pages/scripts/dashboard.min.js',
                             'backend/js/controllers/DashboardController.js',
                         ] 
                     });
@@ -172,8 +166,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                           'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
                           'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
 
-                          'backend/plugins/datatables/datatables.min.js',
-                          'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
+                          'backend/plugins/datatables/datatables.all.min.js',
                           'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
                           'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
                           'backend/js/user/datatable-ajax.js',
@@ -202,13 +195,12 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                             'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
                             'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
 
-                            'backend/plugins/datatables/datatables.min.js',
-                            'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
+                            'backend/plugins/datatables/datatables.all.min.js',
                             'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
                             'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
                             'backend/js/permission/datatable-ajax.js',
 
-                            'backend/js/controllers/PermissionController.js'
+                            'backend/js/controllers/PermissionController.js',
                         ]
                     }]);
                 }]

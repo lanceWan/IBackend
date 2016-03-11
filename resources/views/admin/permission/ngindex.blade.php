@@ -134,7 +134,6 @@
   <script>
     jQuery(document).ready(function() {
       TableDatatablesAjax.init();
-
       $('.input-group.date').datepicker({
         autoclose: true
       });

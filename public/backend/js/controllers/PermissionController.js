@@ -2,6 +2,7 @@ angular.module('MetronicApp').controller('PermissionController', function($rootS
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
         App.initAjax();
+        TableDatatablesAjax.init();
     });
 
     // set sidebar closed and body solid layout mode

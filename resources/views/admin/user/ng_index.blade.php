@@ -1,3 +1,4 @@
+<div ng-controller="UserController">
   <div class="row margin-top-40">
 	    <div class="col-md-12">
 	        <!-- Begin: life time stats -->
@@ -119,11 +120,8 @@
 	    </div>
 	</div>
 
-	
 	<script>
 		jQuery(document).ready(function() {
-
-			TableDatatablesAjax.init();
 
       $('.input-group.date').datepicker({
         autoclose: true
@@ -135,3 +133,4 @@
       })
 		});
 	</script>
+</div>
