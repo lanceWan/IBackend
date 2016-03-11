@@ -11,6 +11,7 @@
 		],
 		// 控制显示permission按钮
 		'permission' => [
-			'show' => true
+			'show' => false,	//查看
+			'trash' => true,	//禁用
 		]
 	];

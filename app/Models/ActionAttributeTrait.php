@@ -23,7 +23,12 @@ trait ActionAttributeTrait{
 	 */
 	public function getTrashActionButton()
 	{
-		return '<a href="#" class="btn btn-xs btn-primary tooltips" data-container="body" data-original-title="' . trans('label.permission.trash') . '"  data-placement="top"><i class="fa fa-times"></i></a>';
+		if (($this->status == config('admin.status.normal')) || ($this->status == config('admin.status.audit'))) {
+			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.trash'))) {
+				return '<a href="#" class="btn btn-xs btn-danger tooltips" data-container="body" data-original-title="' . trans('label.permission.trash') . '"  data-placement="top"><i class="fa fa-times"></i></a>';
+			}
+		}
+		return '';
 	}
 
 	/**
@@ -34,7 +39,12 @@ trait ActionAttributeTrait{
 	 */
 	public function getDeleteActionButton()
 	{
-		return 'getDeleteActionButton ';
+		if (($this->status == config('admin.status.trash'))) {
+			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.delete'))) {
+				return '<a href="#" class="btn btn-xs btn-danger tooltips" data-container="body" data-original-title="' . trans('label.permission.delete') . '"  data-placement="top"><i class="fa fa-trash"></i></a>';
+			}
+		}
+		return '';
 	}
 	/**
 	 * 修改按钮
@@ -44,7 +54,10 @@ trait ActionAttributeTrait{
 	 */
 	public function getEditActionButton()
 	{
-		return 'getEditActionButton ';
+		if (Auth::user()->can(config('admin.permissions.'.$this->action.'.edit'))) {
+			return '<a href="#" class="btn btn-xs btn-primary tooltips" data-original-title="' . trans('label.permission.edit') . '"  data-placement="top"><i class="fa fa-pencil"></i></a>';
+		}
+		return '';
 	}
 
 	/**
@@ -56,8 +69,8 @@ trait ActionAttributeTrait{
 	public function getShowActionButton()
 	{
 		if (config('admin.main.'.$this->action.'.show')) {
-			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.list'))) {
-				return '查看列表';
+			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.show'))) {
+				return '<a href="#" class="btn btn-xs btn-info tooltips" data-container="body" data-original-title="' . trans('label.permission.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';
 			}
 		}
 		return '';
@@ -70,7 +83,12 @@ trait ActionAttributeTrait{
 	 */
 	public function getUndoActionButton()
 	{
-		return 'getUndoActionButton';
+		if (($this->status == config('admin.status.delete')) || ($this->status == config('admin.status.trash'))) {
+			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.undo'))) {
+				return '<a href="#" class="btn btn-xs btn-danger tooltips" data-container="body" data-original-title="' . trans('label.permission.undo') . '"  data-placement="top"><i class="fa fa-reply"></i></a>';
+			}
+		}
+		return '';
 	}
 
 	/**
@@ -81,7 +99,12 @@ trait ActionAttributeTrait{
 	 */
 	public function getAuditActionButton()
 	{
-		return 'getAuditActionButton';
+		if (($this->status == config('admin.status.audit'))) {
+			if (Auth::user()->can(config('admin.permissions.'.$this->action.'.audit'))) {
+				return '<a href="#" class="btn btn-xs btn-primary tooltips" data-container="body" data-original-title="' . trans('label.permission.audit') . '"  data-placement="top"><i class="fa fa-check"></i></a>';
+			}
+		}
+		return '';
 	}
 	/**
 	 * 获取所有按钮

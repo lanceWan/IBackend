@@ -144,6 +144,23 @@ class PermissionsTableSeeder extends Seeder
             'slug' => 'admin.permissions.edit',
             'description' => '修改权限'
         ]);
+        /**
+         * 禁用权限
+         */
+        Permission::create([
+            'name' => 'permissions trash',
+            'slug' => 'admin.permissions.trash',
+            'description' => '禁用权限'
+        ]);
+
+        /**
+         * 恢复权限
+         */
+        Permission::create([
+            'name' => 'permissions undo',
+            'slug' => 'admin.permissions.undo',
+            'description' => '恢复权限'
+        ]);
 
         /////////////
         //用户管理 //
