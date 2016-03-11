@@ -76,9 +76,9 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
             pageBodySolid: false, // solid body color state
             pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
         },
-        assetsPath: '../assets',
-        globalPath: '../assets/global',
-        layoutPath: '../assets/layouts/layout',
+        assetsPath: '../backend',
+        globalPath: '../backend/',
+        layoutPath: '../backend',
     };
 
     $rootScope.settings = settings;
@@ -89,8 +89,8 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
 /* Setup App Main Controller */
 MetronicApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
     $scope.$on('$viewContentLoaded', function() {
-        // App.initComponents(); // init core components
-        //Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive 
+        App.initComponents(); // init core components
+        // Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive 
     });
 }]);
 
@@ -102,43 +102,30 @@ initialization can be disabled and Layout.init() should be called on page load c
 
 /* Setup Layout Part - Header */
 MetronicApp.controller('HeaderController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-        Layout.initHeader(); // init header
-    });
+    Layout.initHeader(); // init header
 }]);
 
 /* Setup Layout Part - Sidebar */
 MetronicApp.controller('SidebarController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-        Layout.initSidebar(); // init sidebar
-    });
+    Layout.initSidebar(); // init sidebar
 }]);
-
-/* Setup Layout Part - Quick Sidebar */
-// MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
-//     $scope.$on('$includeContentLoaded', function() {
-//        setTimeout(function(){
-//             QuickSidebar.init(); // init quick sidebar        
-//         }, 2000)
-//     });
-// }]);
 
 /* Setup Layout Part - Theme Panel */
 MetronicApp.controller('ThemePanelController', ['$scope', function($scope) {    
-    $scope.$on('$includeContentLoaded', function() {
-        Demo.init(); // init theme panel
-    });
+    Demo.init(); // init theme panel
 }]);
 
 /* Setup Layout Part - Footer */
 MetronicApp.controller('FooterController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-        Layout.initFooter(); // init footer
-    });
+    Layout.initFooter(); // init footer
 }]);
 
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+    // enable html5Mode for pushstate ('#'-less URLs)
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("/");  
     
@@ -498,9 +485,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             }
         });
 
-        // enable html5Mode for pushstate ('#'-less URLs)
-        $locationProvider.html5Mode(true);
-        $locationProvider.hashPrefix('!');
+        
 
 }]);
 

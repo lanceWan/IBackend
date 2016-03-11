@@ -33,6 +33,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 });
 
+Route::get('sidebar', function(){
+	return view('layouts.admin.sidebar');
+});
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web', 'auth']], function ($router) {
     $router->get('/', 'IndexController@index');
     $router->get('/ajaxindex', 'IndexController@ajaxIndex');

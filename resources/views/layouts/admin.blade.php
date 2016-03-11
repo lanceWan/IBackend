@@ -25,7 +25,7 @@
         <!-- END DYMANICLY LOADED CSS FILES -->
         <!-- BEGIN THEME STYLES -->
         <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
-        <link href="{{asset('backend/css/components.min.css')}}" id="style_components" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/components-md.min.css')}}" id="style_components" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/css/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
@@ -53,16 +53,15 @@
         </div>
         <!-- END PAGE SPINNER -->
         <!-- BEGIN HEADER -->
-        <div data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top">
+        <div ng-controller="HeaderController" class="page-header navbar navbar-fixed-top">
             @include('layouts.admin.header')
-
         </div>
         <!-- END HEADER -->
         <div class="clearfix"> </div>
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
-            <div data-ng-controller="SidebarController" class="page-sidebar-wrapper">
+            <div ng-controller="SidebarController" class="page-sidebar-wrapper">
                 @include('layouts.admin.sidebar')
             </div>
             <!-- END SIDEBAR -->
@@ -70,7 +69,7 @@
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <!-- BEGIN STYLE CUSTOMIZER(optional) -->
-                    <div data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm">
+                    <div ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm">
                     </div>
                     <!-- END STYLE CUSTOMIZER -->
                     <!-- BEGIN ACTUAL CONTENT -->
@@ -87,7 +86,7 @@
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
-        <div data-ng-controller="FooterController" class="page-footer">
+        <div ng-controller="FooterController" class="page-footer">
             @include('layouts.admin.footer')
         </div>
         <!-- END FOOTER -->
@@ -119,11 +118,13 @@
         <script src="{{asset('backend/js/directives.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL ANGULARJS SCRIPTS -->
         <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
-        <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/js/app.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/js/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/demo.min.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL JQUERY SCRIPTS -->
         <!-- END JAVASCRIPTS -->
+
     </body>
     <!-- END BODY -->
 </html>

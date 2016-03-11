@@ -42,7 +42,7 @@
             <ul class="sub-menu">
                 <li>
                     <a href="#/ui_bootstrap.html">
-                        <i class="icon-puzzle"></i> UI Bootstrap</span>
+                        <i class="icon-puzzle"></i> UI Bootstrapsss</span>
                     </a>
                 </li>
                 <li>
