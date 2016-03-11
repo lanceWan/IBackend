@@ -37,4 +37,11 @@ class IndexController extends Controller{
     public function ajaxIndex(){
     	return view('admin.index.ajaxindex');
     }
+
+    public function dataTableI18n()
+    {
+        return trans('pagination.i18n');
+    }
+
+
 }
