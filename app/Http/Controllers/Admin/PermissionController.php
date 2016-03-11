@@ -21,8 +21,12 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        return view('admin.permission.index');
+    }
+
+    public function ngIndex(){
         $createButton = $this->getStoreActionButton();
-        return view('admin.permission.index')->with(compact('createButton'));
+        return view('admin.permission.ngindex')->with(compact('createButton'));
     }
 
     /**

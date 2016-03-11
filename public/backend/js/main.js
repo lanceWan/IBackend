@@ -178,7 +178,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                           'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
                           'backend/js/user/datatable-ajax.js',
 
-
                           'backend/js/controllers/UserController.js',
                       ] 
                   });
@@ -187,25 +186,30 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         })
 
         // UI Select
-        .state('uiselect', {
-            url: "/ui_select.html",
-            templateUrl: "views/ui_select.html",
+        .state('admin_permission', {
+            url: "/admin/permission",
+            templateUrl: "/admin/permission/ngindex",
             data: {pageTitle: 'AngularJS Ui Select'},
-            controller: "UISelectController",
+            controller: "PermissionController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([{
-                        name: 'ui.select',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
-                        files: [
-                            '../assets/global/plugins/angularjs/plugins/ui-select/select.min.css',
-                            '../assets/global/plugins/angularjs/plugins/ui-select/select.min.js'
-                        ] 
-                    }, {
                         name: 'MetronicApp',
                         files: [
-                            'js/controllers/UISelectController.js'
-                        ] 
+                            'backend/plugins/datatables/datatables.min.css',
+                            'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
+                            'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
+                            'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
+
+                            'backend/plugins/datatables/datatables.min.js',
+                            'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
+                            'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+                            'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
+                            'backend/js/permission/datatable-ajax.js',
+
+                            'backend/js/controllers/PermissionController.js'
+                        ],
                     }]);
                 }]
             }

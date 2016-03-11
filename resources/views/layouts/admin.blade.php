@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
+Version: 4.5.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
 <!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="MetronicApp"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="MetronicApp"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en" data-ng-app="MetronicApp">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
+
     <head>
         <base href="/">
         <title data-ng-bind="'Metronic AngularJS | ' + $state.current.data.pageTitle"></title>
@@ -14,8 +26,9 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
@@ -68,9 +81,9 @@
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <div class="page-content">
+                    @include('layouts.admin.breadcrumb')
                     <!-- BEGIN STYLE CUSTOMIZER(optional) -->
-                    <div ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm">
-                    </div>
+                    <div ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"></div>
                     <!-- END STYLE CUSTOMIZER -->
                     <!-- BEGIN ACTUAL CONTENT -->
                     <div ui-view class="fade-in-up"> </div>
@@ -84,6 +97,7 @@
             </a>
             <!-- END QUICK SIDEBAR -->
         </div>
+
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <div ng-controller="FooterController" class="page-footer">
@@ -93,9 +107,9 @@
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE JQUERY PLUGINS -->
         <!--[if lt IE 9]>
-	<script src="../assets/global/plugins/respond.min.js"></script>
-	<script src="../assets/global/plugins/excanvas.min.js"></script> 
-	<![endif]-->
+    <script src="{{asset('backend/plugins/respond.min.js')}}"></script>
+    <script src="{{asset('backend/plugins/excanvas.min.js')}}"></script> 
+    <![endif]-->
         <script src="{{asset('backend/plugins/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
@@ -113,18 +127,18 @@
         <script src="{{asset('backend/plugins/angularjs/plugins/ocLazyLoad.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js')}}" type="text/javascript"></script>
         <!-- END CORE ANGULARJS PLUGINS -->
+        <script id="ng_load_plugins_js" />
         <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
         <script src="{{asset('backend/js/main.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/directives.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL ANGULARJS SCRIPTS -->
         <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
-        <script src="{{asset('backend/js/app.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/layout.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('backend/js/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/demo.min.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL JQUERY SCRIPTS -->
         <!-- END JAVASCRIPTS -->
-
     </body>
     <!-- END BODY -->
+
 </html>
