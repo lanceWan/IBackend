@@ -1,1 +1,1 @@
-123123
+<div ui-view></div>

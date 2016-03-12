@@ -127,7 +127,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     $locationProvider.hashPrefix('!');
 
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/");  
+    $urlRouterProvider.otherwise("/admin");  
     
     $stateProvider
         // Dashboard
@@ -143,6 +143,15 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
+                            'backend/plugins/datatables/datatables.min.css',
+                            'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
+                            'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
+                            'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
+
+                            'backend/plugins/datatables/datatables.all.min.js',
+                            'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+                            'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
+
                             'backend/js/controllers/DashboardController.js',
                         ] 
                     });
@@ -151,9 +160,9 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         })
 
         // AngularJS plugins
-        .state('user', {
+        .state('admin.user', {
             // abstract: true,
-            url: "/admin/user",
+            url: "/user",
             templateUrl: "/admin/user/ngindex",
             data: {pageTitle: 'AngularJS File Upload'},
             controller: "UserController",
@@ -164,16 +173,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                       name: 'MetronicApp',
                       insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                       files: [
-                          'backend/plugins/datatables/datatables.min.css',
-                          'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
-                          'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
-                          'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
-
-                          'backend/plugins/datatables/datatables.all.min.js',
-                          'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
-                          'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
                           'backend/js/user/datatable-ajax.js',
-
                           'backend/js/controllers/UserController.js',
                       ] 
                   });
@@ -182,8 +182,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         })
 
         // UI Select
-        .state('permission', {
-            url: "/admin/permission",
+        .state('admin.permission', {
+            url: "/permission",
             templateUrl: "/admin/permission/ngindex",
             data: {pageTitle: 'AngularJS Ui Select'},
             controller: "PermissionController",
@@ -194,16 +194,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
                         name: 'MetronicApp',
                         files: [
-                            'backend/plugins/datatables/datatables.min.css',
-                            'backend/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
-                            'backend/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
-                            'backend/plugins/bootstrap-select/css/bootstrap-select.min.css',
-
-                            'backend/plugins/datatables/datatables.all.min.js',
-                            'backend/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
-                            'backend/plugins/bootstrap-select/js/bootstrap-select.min.js',
                             'backend/js/permission/datatable-ajax.js',
-
                             'backend/js/controllers/PermissionController.js',
                         ]
                     }]);
