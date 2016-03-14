@@ -169,12 +169,12 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                   return $ocLazyLoad.load({
-                    cache: false,
+                      cache: false,
                       name: 'MetronicApp',
                       insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                       files: [
-                          'backend/js/user/datatable-ajax.js',
-                          'backend/js/controllers/UserController.js',
+                        'backend/js/user/datatable-ajax.js',
+                        'backend/js/controllers/UserController.js',
                       ] 
                   });
               }]

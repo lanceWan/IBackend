@@ -58,6 +58,9 @@ var TableDatatablesAjax = function() {
         	"orderable" : false,
         },
     	],
+      "language": {
+        url: '/admin/i18n'
+      }
     });
 
     dt.on('click', '.filter-submit', function(){
