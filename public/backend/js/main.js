@@ -72,7 +72,7 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
     var settings = {
         layout: {
             pageSidebarClosed: false, // sidebar menu state
-            pageContentWhite: true, // set page content layout
+            pageContentWhite: false, // set page content layout
             pageBodySolid: false, // solid body color state
             pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
         },
@@ -122,15 +122,13 @@ MetronicApp.controller('FooterController', ['$scope', function($scope) {
 
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-    // enable html5Mode for pushstate ('#'-less URLs)
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+    
 
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("/admin");  
     
     $stateProvider
-        // Dashboard
+        // 后台首页
         .state('admin', {
             url: "/admin",
             templateUrl: "/admin/ajaxindex",            
@@ -159,12 +157,12 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             }
         })
 
-        // AngularJS plugins
+        // 用户列表
         .state('admin.user', {
             // abstract: true,
             url: "/user",
             templateUrl: "/admin/user/ngindex",
-            data: {pageTitle: 'AngularJS File Upload'},
+            data: {pageTitle: '用户列表'},
             controller: "UserController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -181,11 +179,11 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             }
         })
 
-        // UI Select
+        //权限列表
         .state('admin.permission', {
             url: "/permission",
             templateUrl: "/admin/permission/ngindex",
-            data: {pageTitle: 'AngularJS Ui Select'},
+            data: {pageTitle: '权限列表'},
             controller: "PermissionController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -202,18 +200,21 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             }
         })
 
-        // UI Bootstrap
-        .state('uibootstrap', {
-            url: "/ui_bootstrap.html",
-            templateUrl: "views/ui_bootstrap.html",
-            data: {pageTitle: 'AngularJS UI Bootstrap'},
-            controller: "GeneralPageController",
+        // 菜单列表
+        .state('admin.menu', {
+            url: "/menu",
+            templateUrl: "/admin/menu/ngindex",
+            data: {pageTitle: '菜单列表'},
+            controller: "MenuController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([{
                         name: 'MetronicApp',
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'backend/plugins/jquery-nestable/jquery.nestable.css',
+                            'backend/plugins/jquery-nestable/jquery.nestable.js',
+                            'backend/js/script/nestable.js',
+                            'backend/js/controllers/MenuController.js'
                         ] 
                     }]);
                 }] 
@@ -488,6 +489,9 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     //     }
     // )};
 
+    // enable html5Mode for pushstate ('#'-less URLs)
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
         
 
 }]);

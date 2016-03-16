@@ -122,8 +122,8 @@
         <script src="{{asset('backend/js/directives.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL ANGULARJS SCRIPTS -->
         <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
-        <script src="{{asset('backend/js/app.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('backend/js/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/js/app.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/js/layout.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/js/demo.min.js')}}" type="text/javascript"></script>
         <!-- END APP LEVEL JQUERY SCRIPTS -->
         <!-- END JAVASCRIPTS -->

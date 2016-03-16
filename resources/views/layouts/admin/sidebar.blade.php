@@ -50,19 +50,19 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="/admin/user" class="nav-link">
+                        <a href="{{url('admin/user')}}" class="nav-link">
                             <i class="fa fa-crop"></i>
                             <span class="title">用户列表</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="/admin/permission" class="nav-link">
+                        <a href="{{url('admin/permission')}}" class="nav-link">
                             <span class="title">权限列表</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link">
-                            <span class="title">Buttons</span>
+                        <a href="{{url('admin/menu')}}" class="nav-link">
+                            <span class="title">菜单列表</span>
                         </a>
                     </li>
                     <li class="nav-item  ">

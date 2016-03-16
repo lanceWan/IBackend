@@ -42,7 +42,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['web'
     $router->get('/ajaxindex', 'IndexController@ajaxIndex');
     $router->get('/i18n', 'IndexController@dataTableI18n');
 
+    /*用户*/
     require(__DIR__ . '/Routes/UserRoute.php');
     //权限
     require(__DIR__ . '/Routes/PermissionRoute.php');
+    /*菜单*/
+    require(__DIR__ . '/Routes/MenuRoute.php');
 });

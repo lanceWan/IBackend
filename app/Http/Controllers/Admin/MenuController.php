@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/*仓库*/
+use BackMenuRepository;
+
 class MenuController extends Controller
 {
     /**
@@ -16,7 +19,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.menu.index');
+    }
+
+    public function ngIndex(){
+        return view('admin.menu.ngindex');
     }
 
     /**
@@ -84,4 +91,66 @@ class MenuController extends Controller
     {
         //
     }
+
+    /**
+     * 修改 菜单 模块以及排序
+     * 
+     * @param        
+     * 
+     * @author        xezw211@gmail.com
+     * 
+     * @date        2016-03-15 19:10:37
+     * 
+     * @return        
+     */
+    public function ngUpdate(){
+        $returnData = [
+            'result' => false
+        ];
+        $menu = request('menu', '');
+        // dd($menu);
+        if(!empty($menu)){
+            $menuArrs = json_decode($menu, true);
+
+            // dd($menuArrs);
+            if($menuArrs){
+                foreach($menuArrs as $menuArr){
+                    $order = 1;
+
+                    $data = [
+                        'sort' => $order,
+                    ];
+                    $order += 1;
+                    BackMenuRepository::adminUpdateMenu($pid, $data);
+
+                    while(isset($menuArr['children'])){
+                        $childrenorder = 1;
+
+                        $pid = $menuArr['id'];
+                        foreach($menuArr['children'] as $menuChildArr){
+                            $data = [
+                                'sort' => $childrenorder,
+                                'parent_id' => $pid
+                            ];
+                            $childrenorder += 1;
+                            BackMenuRepository::adminUpdateMenu($pid, $data);
+                        }
+                        $menuArr = $menuArr['children'];
+                    }
+                }
+
+                $returnData = [
+                    'result' => true
+                ];
+            }else{
+                /*不进行任何修改*/
+                $returnData = [
+                    'result' => true
+                ];
+            }
+        }
+
+        return response()->json($returnData);
+    }
+    
 }
