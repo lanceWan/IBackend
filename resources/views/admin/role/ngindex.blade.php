@@ -1,4 +1,10 @@
-<div ng-controller="PermissionController">
+<div ng-controller="RoleController">
+  <div class="modal fade bs-modal-lg" id="draggable" role="basic" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content"></div>
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
   <div class="row margin-top-40">
       <div class="col-md-12">
           <!-- Begin: life time stats -->
@@ -6,7 +12,7 @@
             <div class="portlet-title">
               <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">{{trans('label.permission.index')}}</span>
+                <span class="caption-subject font-dark sbold uppercase">{{trans('label.role.index')}}</span>
               </div>
               <div class="actions">
                   {!! $createButton !!}
@@ -18,13 +24,13 @@
                       <thead>
                           <tr role="row" class="heading">
                             <th><input type="checkbox" class="group-checkable"> </th>
-                            <th width="15%"> {{ trans('model.permission.name') }} </th>
-                            <th width="15%"> {{ trans('model.permission.slug') }} </th>
-                            <th> {{ trans('model.permission.description') }} </th>
-                            <th> {{ trans('model.permission.model') }} </th>
-                            <th> {{ trans('model.permission.status') }} </th>
-                            <th width="12%"> {{ trans('model.permission.created_at') }} </th>
-                            <th width="12%"> {{ trans('model.permission.updated_at') }} </th>
+                            <th width="15%"> {{ trans('model.role.name') }} </th>
+                            <th width="15%"> {{ trans('model.role.slug') }} </th>
+                            <th> {{ trans('model.role.description') }} </th>
+                            <th> {{ trans('model.role.level') }} </th>
+                            <th> {{ trans('model.role.status') }} </th>
+                            <th width="12%"> {{ trans('model.role.created_at') }} </th>
+                            <th width="12%"> {{ trans('model.role.updated_at') }} </th>
                             <th> {{ trans('label.action') }} </th>
                           </tr>
                           <tr role="row" class="filter">
@@ -35,7 +41,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                       </span>
-                                      <input type="text" class="form-control form-filter" name="name" placeholder="{{ trans('model.permission.name') }}">
+                                      <input type="text" class="form-control form-filter" name="name" placeholder="{{ trans('model.role.name') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
@@ -45,7 +51,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-envelope"></i>
                                       </span>
-                                      <input type="text" class="form-control form-filter" name="slug" placeholder="{{ trans('model.permission.slug') }}">
+                                      <input type="text" class="form-control form-filter" name="slug" placeholder="{{ trans('model.role.slug') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
@@ -56,7 +62,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-book"></i>
                                       </span>
-                                      <input type="text" class="form-control form-filter" name="description" placeholder="{{ trans('model.permission.description') }}">
+                                      <input type="text" class="form-control form-filter" name="description" placeholder="{{ trans('model.role.description') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
@@ -67,7 +73,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-cogs"></i>
                                       </span>
-                                      <input type="text" class="form-control form-filter" name="model" placeholder="{{ trans('model.permission.model') }}">
+                                      <input type="text" class="form-control form-filter" name="level" placeholder="{{ trans('model.role.level') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
@@ -76,9 +82,9 @@
                                 <div class="form-group form-md-line-input">
                                   <select class="bs-select form-control form-filter" data-show-subtext="true" name="status">
                                     <option value="" data-icon="fa-glass icon-success">请选择...</option>
-                                      @if(trans('label.permission.status'))
-                                        @foreach(trans('label.permission.status') as $status_key => $status_value)
-                                          <option value="{{$status_key}}" data-icon="{{$status_value[0]}}">{{$status_value[1]}}</option>
+                                      @if(trans('label.role.status'))
+                                        @foreach(trans('label.role.status') as $status_value)
+                                          <option value="{{$status_value[2]}}" data-icon="{{$status_value[0]}}">{{$status_value[1]}}</option>
                                         @endforeach
                                       @endif
                                   </select>
@@ -132,6 +138,7 @@
           <!-- End: life time stats -->
       </div>
   </div>
+  
   <script>
     jQuery(document).ready(function() {
       $('.input-group.date').datepicker({

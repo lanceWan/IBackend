@@ -125,7 +125,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     
 
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/admin");  
+    // $urlRouterProvider.otherwise("/admin");
     
     $stateProvider
         // 后台首页
@@ -221,59 +221,41 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             }
         })
 
-        // Tree View
-        .state('tree', {
-            url: "/tree",
-            templateUrl: "views/tree.html",
-            data: {pageTitle: 'jQuery Tree View'},
-            controller: "GeneralPageController",
+        // 角色列表
+        .state('admin.role', {
+            url: "/role",
+            templateUrl: "/admin/role/ngindex",
+            data: {pageTitle: '角色列表 '},
+            controller: "RoleController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([{
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
+                        cache: false,
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
-                            '../assets/global/plugins/jstree/dist/themes/default/style.min.css',
-
-                            '../assets/global/plugins/jstree/dist/jstree.min.js',
-                            '../assets/pages/scripts/ui-tree.min.js',
-                            'js/controllers/GeneralPageController.js'
+                            'backend/js/role/datatable-ajax.js',
+                            'backend/js/controllers/RoleController.js',
                         ] 
                     }]);
                 }] 
             }
         })     
 
-        // Form Tools
-        .state('formtools', {
-            url: "/form-tools",
-            templateUrl: "views/form_tools.html",
-            data: {pageTitle: 'Form Tools'},
-            controller: "GeneralPageController",
+        // 创建角色
+        .state('admin.roleCreate', {
+            url: "/role/create",
+            templateUrl: "/admin/role/create",
+            data: {pageTitle: '添加角色'},
+            controller: "RoleController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([{
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
+                        // cache: false,
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
-                            '../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css',
-                            '../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
-                            '../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css',
-                            '../assets/global/plugins/typeahead/typeahead.css',
-
-                            '../assets/global/plugins/fuelux/js/spinner.min.js',
-                            '../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js',
-                            '../assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js',
-                            '../assets/global/plugins/jquery.input-ip-address-control-1.0.min.js',
-                            '../assets/global/plugins/bootstrap-pwstrength/pwstrength-bootstrap.min.js',
-                            '../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
-                            '../assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js',
-                            '../assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js',
-                            '../assets/global/plugins/typeahead/handlebars.min.js',
-                            '../assets/global/plugins/typeahead/typeahead.bundle.min.js',
-                            '../assets/pages/scripts/components-form-tools-2.min.js',
-
-                            'js/controllers/GeneralPageController.js'
+                            'backend/js/controllers/RoleController.js',
                         ] 
                     }]);
                 }] 

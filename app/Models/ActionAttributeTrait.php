@@ -8,10 +8,14 @@ trait ActionAttributeTrait{
 	 * @date   2016-03-10T10:05:37+0800
 	 * @return [type]                   [description]
 	 */
-	public function getStoreActionButton()
+	public function getStoreActionButton($type = true)
 	{
 		if (Auth::user()->can(config('admin.permissions.'.$this->action.'.create'))) {
-			return '<a href="javascript:;" class="btn btn-circle btn-lg purple"><i class="fa fa-plus"></i> ' . trans("label.permission.create") . ' </a>';
+
+			if ($type) {
+				return '<a href="'.url('admin/'.$this->action.'/create').'" class="btn btn-circle btn-lg btn-outline purple sbold"><i class="fa fa-plus"></i> ' . trans("label.permission.create") . ' </a>';
+			}
+			return '<a href="'.url('admin/'.$this->action.'/create').'" data-toggle="modal" data-target="#draggable" class="btn btn-circle btn-lg btn-outline purple sbold"><i class="fa fa-plus"></i>' . trans("label.permission.create") . ' </a>';
 		}
 		return '';
 	}

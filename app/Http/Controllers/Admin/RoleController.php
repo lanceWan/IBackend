@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use BackRoleRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\ActionAttributeTrait;
 
 class RoleController extends Controller
 {
+
+    use ActionAttributeTrait;
+
+    protected $action = 'role';
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +21,19 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.role.index');
+    }
+
+    public function ngIndex()
+    {
+        $createButton = $this->getStoreActionButton();
+        return view('admin.role.ngindex')->with(compact('createButton'));
+    }
+
+    public function ajaxIndex()
+    {
+        $role = BackRoleRepository::ajaxIndex();
+        return response()->json($role);
     }
 
     /**
@@ -24,9 +41,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $permission = BackRoleRepository::create();
+        return view('admin.role.create')->with(compact('permission'));
     }
 
     /**

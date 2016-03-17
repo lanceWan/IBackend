@@ -19,5 +19,15 @@
 			'status' => '状态',
 			'created_at' => '创建时间',
 			'updated_at' => '修改时间',
+		],
+		'role' => [
+			'id' => '序号',
+			'name' => '名称',
+			'slug' => '角色',
+			'description' => '描述',
+			'level' => '等级',
+			'status' => '状态',
+			'created_at' => '创建时间',
+			'updated_at' => '修改时间',
 		]
 	];

@@ -66,8 +66,8 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_confirmations.html" class="nav-link">
-                            <span class="title">Popover Confirmations</span>
+                        <a href="{{url('admin/role')}}" class="nav-link">
+                            <span class="title">角色列表</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
