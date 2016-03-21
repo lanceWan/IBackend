@@ -1,6 +1,7 @@
 <div ng-controller="UserController">
   <div class="row margin-top-40">
 	    <div class="col-md-12">
+          <button class="btn btn-success" ng-click="open('lg')">添加</button>
 	        <!-- Begin: life time stats -->
 	        <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
@@ -46,7 +47,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                       </span>
-                                      <input type="text" class="form-control" name="name" placeholder="{{ trans('model.user.name') }}">
+                                      <input type="text" class="form-control form-filter" name="name" placeholder="{{ trans('model.user.name') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>
@@ -56,7 +57,7 @@
                                       <span class="input-group-addon">
                                           <i class="fa fa-envelope"></i>
                                       </span>
-                                      <input type="text" class="form-control" name="email" placeholder="{{ trans('model.user.email') }}">
+                                      <input type="text" class="form-control form-filter" name="email" placeholder="{{ trans('model.user.email') }}">
                                       <div class="form-control-focus"> </div>
                                   </div>
                                 </div>

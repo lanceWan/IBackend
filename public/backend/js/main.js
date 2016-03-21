@@ -172,9 +172,18 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                       insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                       files: [
                         'backend/js/user/datatable-ajax.js',
+
                         'backend/js/controllers/UserController.js',
-                      ] 
-                  });
+                      ]
+                  },
+                  {
+                    name : 'ui.bootstrap',
+                    insertBefore: '#ng_load_plugins_before',
+                    files: [
+                      'backend/plugins/ui-bootstrap-tpls-1.2.5.min.js',
+                    ]
+                  }
+                  );
               }]
             }
         })
