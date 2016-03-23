@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Menus\Menus;
+use App\Models\Menu;
 class MenusTableSeeder extends Seeder
 {
     /**
@@ -11,7 +11,7 @@ class MenusTableSeeder extends Seeder
      */
     public function run()
     {
-        $menu = new Menus;
+        $menu = new Menu;
         $menu->name = "菜单管理";
         $menu->parent_id = 0;
         $menu->slug = "admin.menus.manage";
@@ -19,7 +19,7 @@ class MenusTableSeeder extends Seeder
         $menu->url = "menu";
         $menu->save();
 
-        $menulist = new Menus;
+        $menulist = new Menu;
         $menulist->name = "菜单列表";
         $menulist->parent_id = $menu->id;
         $menulist->slug = "admin.menus.list";
@@ -28,7 +28,7 @@ class MenusTableSeeder extends Seeder
         $menulist->save();
 
         /*角色*/
-        $role = new Menus;
+        $role = new Menu;
         $role->name = "角色管理";
         $role->parent_id = 0;
         $role->slug = "admin.roles.manage";
@@ -36,7 +36,7 @@ class MenusTableSeeder extends Seeder
         $role->url = "role";
         $role->save();
 
-        $rolelist = new Menus;
+        $rolelist = new Menu;
         $rolelist->name = "角色列表";
         $rolelist->parent_id = $role->id;
         $rolelist->slug = "admin.roles.list";
@@ -45,7 +45,7 @@ class MenusTableSeeder extends Seeder
         $rolelist->save();
 
         /*权限*/
-        $permission = new Menus; 
+        $permission = new Menu; 
         $permission->name = "权限管理";
         $permission->parent_id = 0;
         $permission->slug = "admin.permissions.manage";
@@ -53,7 +53,7 @@ class MenusTableSeeder extends Seeder
         $permission->url = "permission";
         $permission->save();
 
-        $permissionlist = new Menus;
+        $permissionlist = new Menu;
         $permissionlist->name = "权限列表";
         $permissionlist->parent_id = $permission->id;
         $permissionlist->slug = "admin.permissions.list";
@@ -62,7 +62,7 @@ class MenusTableSeeder extends Seeder
         $permissionlist->save();
 
         /*用户*/
-        $user = new Menus;
+        $user = new Menu;
         $user->name = "用户管理";
         $user->parent_id = 0;
         $user->slug = "admin.users.manage";
@@ -70,7 +70,7 @@ class MenusTableSeeder extends Seeder
         $user->url = "user";
         $user->save();
 
-        $userlist = new Menus;
+        $userlist = new Menu;
         $userlist->name = "用户列表";
         $userlist->parent_id = $user->id;
         $userlist->slug = "admin.users.list";
@@ -79,7 +79,7 @@ class MenusTableSeeder extends Seeder
         $userlist->save();
 
         /*个人首页*/
-        $adminPage = new Menus;
+        $adminPage = new Menu;
         $adminPage->name = "用户首页";
         $adminPage->parent_id = 0;
         $adminPage->slug = "admin.page.show";
@@ -88,7 +88,7 @@ class MenusTableSeeder extends Seeder
         $adminPage->save();
 
         /*日志管理*/
-        $logManage = new Menus;
+        $logManage = new Menu;
         $logManage->name = "日志管理";
         $logManage->parent_id = 0;
         $logManage->slug = "admin.logs.manage";
@@ -96,7 +96,7 @@ class MenusTableSeeder extends Seeder
         $logManage->url = "log";
         $logManage->save();
 
-        $logOverall = new Menus;
+        $logOverall = new Menu;
         $logOverall->name = "日志总览";
         $logOverall->parent_id = $logManage->id;
         $logOverall->slug = "admin.logs.all";
@@ -104,7 +104,7 @@ class MenusTableSeeder extends Seeder
         $logOverall->url = "log/log-viewer";
         $logOverall->save();
 
-        $logList = new Menus;
+        $logList = new Menu;
         $logList->name = "日志列表";
         $logList->parent_id = $logManage->id;
         $logList->slug = "admin.logs.list";
