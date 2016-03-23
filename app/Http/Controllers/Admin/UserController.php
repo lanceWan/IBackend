@@ -47,7 +47,6 @@ class UserController extends Controller
      * @return        
      */
     public function ajaxIndex(){
-        // dd(request()->all());
         $data = BackUserRepository::ajaxIndex();
 
         return response()->json($data);
@@ -60,7 +59,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return 'asdasd';
+        return view('admin.user.create');
     }
 
     /**

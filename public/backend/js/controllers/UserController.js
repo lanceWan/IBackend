@@ -3,9 +3,6 @@ angular.module('MetronicApp').controller('UserController', function($rootScope, 
         // initialize core components
         App.initAjax();
         TableDatatablesAjax.init();
-
-        $scope.animationsEnabled = true;
-
         
     });
 
@@ -15,49 +12,45 @@ angular.module('MetronicApp').controller('UserController', function($rootScope, 
     $rootScope.settings.layout.pageSidebarClosed = false;
 
 
+    /* modal 添加*/
+    $scope.animationsEnabled = true;
+    $scope.items = ['item1', 'item2', 'item3'];
     $scope.open = function (size) {
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: '/admin/user/create',
-        controller:function($uibModalInstance ,$scope,user){
-             // $scope.ok = function () {
-             //        $uibModalInstance.dismiss('cancel');
-             //     };
-
-            },
+        templateUrl: '/admin/user/create?r='+Math.random(),
+        controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
-          // items: function () {
-          //   // return $scope.items;
-          // }
+          items: function () {
+            return $scope.items;
+          }
         }
       });
 
-      // modalInstance.result.then(function (selectedItem) {
-      //   // $scope.selected = selectedItem;
-      // }, function () {
-      //   $log.info('Modal dismissed at: ' + new Date());
-      // });
-    };
-
-    $scope.toggleAnimation = function () {
-      $scope.animationsEnabled = !$scope.animationsEnabled;
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
     };
 });
 
+angular.module('MetronicApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
-angular.module('MetronicApp').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+  $("[name='my-checkbox']").bootstrapSwitch();
+  $scope.name = '';
 
-  // $scope.items = items;
-  // $scope.selected = {
-  //   item: $scope.items[0]
-  // };
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
 
-  // $scope.ok = function () {
-  //   $uibModalInstance.close($scope.selected.item);
-  // };
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
 
-  // $scope.cancel = function () {
-  //   $uibModalInstance.dismiss('cancel');
-  // };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 });

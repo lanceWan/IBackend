@@ -111,11 +111,13 @@
         <!-- END CORE JQUERY PLUGINS -->
         <!-- BEGIN CORE ANGULARJS PLUGINS -->
         <script src="{{asset('backend/plugins/angularjs/angular.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/plugins/angularjs/angular-animate.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/angular-sanitize.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/angular-touch.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/plugins/angular-ui-router.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/plugins/ocLazyLoad.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('backend/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js')}}" type="text/javascript"></script>
+        
         <!-- END CORE ANGULARJS PLUGINS -->
         <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
         <script src="{{asset('backend/js/main.js')}}" type="text/javascript"></script>

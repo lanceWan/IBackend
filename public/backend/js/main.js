@@ -4,10 +4,11 @@ Metronic AngularJS App Main Script
 
 /* Metronic App */
 var MetronicApp = angular.module("MetronicApp", [
+    "ngAnimate",
     "ui.router", 
     "ui.bootstrap", 
     "oc.lazyLoad",  
-    "ngSanitize"
+    "ngSanitize",
 ]); 
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
@@ -173,17 +174,12 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                       files: [
                         'backend/js/user/datatable-ajax.js',
 
+                        'backend/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+                        'backend/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+
                         'backend/js/controllers/UserController.js',
                       ]
-                  },
-                  {
-                    name : 'ui.bootstrap',
-                    insertBefore: '#ng_load_plugins_before',
-                    files: [
-                      'backend/plugins/ui-bootstrap-tpls-1.2.5.min.js',
-                    ]
-                  }
-                  );
+                  });
               }]
             }
         })

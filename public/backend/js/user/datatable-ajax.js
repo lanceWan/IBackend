@@ -64,7 +64,6 @@ var TableDatatablesAjax = function() {
     });
 
     dt.on('click', '.filter-submit', function(){
-      console.log($(".filter input[name='status']:checked").val());
       ajax_datatable.ajax.reload(); 
     });
 

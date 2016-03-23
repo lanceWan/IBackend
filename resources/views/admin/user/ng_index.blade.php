@@ -1,7 +1,6 @@
 <div ng-controller="UserController">
   <div class="row margin-top-40">
 	    <div class="col-md-12">
-          <button class="btn btn-success" ng-click="open('lg')">添加</button>
 	        <!-- Begin: life time stats -->
 	        <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
@@ -11,18 +10,10 @@
               </div>
               <div class="actions">
                 <div class="btn-group">
-                  <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
-                    <i class="fa fa-share"></i>
-                    <span class="hidden-xs"> Tools </span>
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu pull-right">
-                    <li><a href="javascript:;"> Export to Excel </a></li>
-                    <li><a href="javascript:;"> Export to CSV </a></li>
-                    <li><a href="javascript:;"> Export to XML </a></li>
-                    <li class="divider"> </li>
-                    <li><a href="javascript:;"> Print Invoices </a></li>
-                  </ul>
+                  <button class="btn btn-success btn-outline btn-circle" ng-click="open('lg')">
+                    <i class="fa fa-user-plus"></i>
+                    <span class="hidden-xs"> 添加</span>
+                  </button>
                 </div>
               </div>
             </div>

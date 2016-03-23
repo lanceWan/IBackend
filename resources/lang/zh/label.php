@@ -3,6 +3,7 @@
 		'action' => '操作',
 
 		'user' => [
+			'create' => '添加用户',
 			'index' => '用户列表',
 			'edit' => '用户修改',
 			'status' => [
