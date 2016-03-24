@@ -1,4 +1,5 @@
 <div ng-controller="UserController">
+  @{{data}}
   <div class="row margin-top-40">
 	    <div class="col-md-12">
 	        <!-- Begin: life time stats -->
