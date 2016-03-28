@@ -11,10 +11,10 @@
               </div>
               <div class="actions">
                 <div class="btn-group">
-                  <button class="btn btn-success btn-outline btn-circle" ng-click="open('lg')">
+                  <a class="btn btn-success btn-outline btn-circle" href="{{route('admin.user.create')}}">
                     <i class="fa fa-user-plus"></i>
                     <span class="hidden-xs"> 添加</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
