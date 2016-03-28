@@ -60,8 +60,14 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.user.index');
     }
+
+    public function ngCreate(){
+        return view('admin.user.ng_create');
+    }
+
+
 
     /**
      * Store a newly created resource in storage.

@@ -180,6 +180,24 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
               }]
             }
         })
+        .state('admin.usercreate', {
+            url : "/user/create",
+            templateUrl : "/admin/user/ngcreate",
+            data: {pageTitle: '添加用户'},
+            controller: "UserCreateController",
+            resolve : {
+                deps : ['$ocLazyLoad', function($ocLazyLoad){
+                    return $ocLazyLoad.load({
+                        cache:false,
+                        name : 'MetronicApp',
+                        insertBefore : '#ng_load_plugins_before',
+                        files : [
+                            'backend/js/controllers/user/UserCreateController.js',
+                        ]
+                    });
+                }]
+            }
+        })
 
         //权限列表
         .state('admin.permission', {

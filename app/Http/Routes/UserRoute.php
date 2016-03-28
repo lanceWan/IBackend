@@ -13,6 +13,7 @@
 	$router->group(['prefix' => 'user'], function($router){
 		$router->get('ajaxindex', 'UserController@ajaxIndex');	
 		$router->get('ngindex', 'UserController@ngIndex');
+		$router->get('ngcreate', 'UserController@ngCreate');
 	});
 	
 	$router->resource('user', 'UserController');
